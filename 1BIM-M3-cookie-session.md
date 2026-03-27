@@ -70,3 +70,16 @@ E o processo volta ao estado inicial novamente.
 
 ---
 
+## Exercício 4  
+**Pergunta:** Por que sessões são preferidas para autenticação de usuários?  
+
+As sessões são preferidas para autenticação porque oferecem mais segurança.  
+Os dados ficam armazenados no servidor, não no navegador.  
+No navegador fica apenas um identificador da sessão.  
+Isso reduz o risco de exposição de informações sensíveis.  
+O servidor controla totalmente os dados armazenados.  
+Como ID do usuário, permissões e informações privadas.  
+Já os cookies armazenam dados diretamente no navegador.  
+Isso permite que sejam acessados ou modificados.  
+Também podem ser roubados em ataques.  
+Por isso, sessões são mais seguras e indicadas para login.

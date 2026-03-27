@@ -39,7 +39,7 @@ Como login, permissões e informações privadas.
 
 
 ## Exercício 2  
-*Pergunta:* Como cookies e sessões podem ser usados em uma loja virtual?  
+**Pergunta:** Como cookies e sessões podem ser usados em uma loja virtual?  
 
 Em uma loja virtual, as sessões são ideais para manter o usuário autenticado.  
 Quando o usuário faz login, o servidor cria uma sessão com seus dados.  

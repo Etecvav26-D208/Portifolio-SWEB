@@ -55,7 +55,7 @@ O uso combinado garante segurança e melhor experiência.
 ---
 
 ## Exercício 3  
-*Pergunta:* Por que o cookie não está disponível na primeira execução?  
+**Pergunta:** Por que o cookie não está disponível na primeira execução?  
 
 Ao executar o arquivo pela primeira vez, o cookie ainda não está disponível.  
 Isso acontece porque ele foi apenas criado pelo servidor.  

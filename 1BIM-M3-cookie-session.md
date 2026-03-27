@@ -83,3 +83,5 @@ Já os cookies armazenam dados diretamente no navegador.
 Isso permite que sejam acessados ou modificados.  
 Também podem ser roubados em ataques.  
 Por isso, sessões são mais seguras e indicadas para login.
+
+---

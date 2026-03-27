@@ -16,7 +16,7 @@
 ## Autores
 - `Maria Eduarda Pinto de Oliveira Rodrigues `
 - `Mariana Rasmussen Rezende Alves`
-- `Natan`
+- `Natan Alexandro`
 - `Pietro Fiorese Dopp`
 
 

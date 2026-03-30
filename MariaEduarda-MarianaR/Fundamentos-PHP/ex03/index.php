@@ -1,5 +1,5 @@
 <!--
-Data: 30/03/2026
+Data: 25/03/2026
 Autor:Maria Eduarda Pinto de Oliveira Rodrigues e Mariana Rasmussen Rezende Alves- 2°D
 Objetivo: Realizar operações matemáticas básicas com base em um operador escolhido pelo usuário.
 

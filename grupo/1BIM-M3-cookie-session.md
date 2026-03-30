@@ -55,4 +55,19 @@ O uso combinado garante segurança e melhor experiência.
 
 ---
 
+## Exercício 3  
+**Pergunta:** Por que o cookie não está disponível na primeira execução?  
+
+Ao executar o arquivo pela primeira vez, o cookie ainda não está disponível.  
+Isso acontece porque ele foi apenas criado pelo servidor.  
+A função que cria o cookie envia os dados ao navegador.  
+Porém, o navegador ainda não retornou esse cookie.  
+Por isso, ele não pode ser acessado imediatamente.  
+Após atualizar a página, o cookie já foi salvo.  
+Então o navegador o envia de volta ao servidor.  
+Nesse momento, o valor do cookie pode ser exibido.  
+Se o cookie for apagado, ele deixa de existir.  
+E o processo volta ao estado inicial novamente.  
+
+---
 

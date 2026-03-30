@@ -37,6 +37,7 @@ Como preferências de idioma, tema e personalização.
 Sessões são indicadas para dados sensíveis.  
 Como login, permissões e informações privadas.  
 
+---
 
 ## Exercício 2  
 **Pergunta:** Como cookies e sessões podem ser usados em uma loja virtual?  
@@ -85,3 +86,4 @@ Também podem ser roubados em ataques.
 Por isso, sessões são mais seguras e indicadas para login.
 
 ---
+

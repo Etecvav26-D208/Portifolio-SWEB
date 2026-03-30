@@ -1,6 +1,6 @@
 <!--
 Data: 30/03/2026
-Autor: Amanda Neves Oliveira e Ana Lívia Takeyama Romanato - 2°D
+Autor: Maria Eduarda Pinto de Oliveira Rodrigues e Mariana Rasmussen Rezende Alves- 2°D
 Objetivo: Utilizar estruturas de repetição para gerar padrões numéricos em forma de sequência crescente.
 
 Exercício 4 - Triângulo Numérico

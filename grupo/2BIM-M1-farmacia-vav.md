@@ -3,7 +3,7 @@
 Sistema de gerenciamento de estoque desenvolvido com **PHP + PDO + MySQL**, como atividade prática da disciplina de Desenvolvimento Web da Etec.
 
 Link
-```https://github.com/NatN21/farmacia-vav.git```
+```[Entre no repositório](https://github.com/NatN21/farmacia-vav)```
 
 O projeto aplica conceitos de:
 

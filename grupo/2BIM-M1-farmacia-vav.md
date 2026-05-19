@@ -1,9 +1,8 @@
 # 💊 Farmácia VAV
 
 Sistema de gerenciamento de estoque desenvolvido com **PHP + PDO + MySQL**, como atividade prática da disciplina de Desenvolvimento Web da Etec.
-
 Link
-```[Entre no repositório](https://github.com/NatN21/farmacia-vav)```
+[Entre no repositório: farmacia-vav](https://github.com/NatN21/farmacia-vav)
 
 O projeto aplica conceitos de:
 

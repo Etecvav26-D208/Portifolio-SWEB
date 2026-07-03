@@ -2,9 +2,9 @@
 
 ## Integrantes
 
-- Nome do Integrante 1
-- Nome do Integrante 2
-- Nome do Integrante 3
+-Maria Eduarda Pinto de Oliveira Rodrigues
+-Mariana Rasmussen Rezende Alves
+
 
 ---
 

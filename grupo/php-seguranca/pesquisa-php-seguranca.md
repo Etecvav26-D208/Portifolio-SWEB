@@ -1,9 +1,8 @@
 # Pesquisa – Segurança em Aplicações Web com PHP
 
 ## Integrantes
-
-Maria Eduarda Pinto de Oliveira Rodrigues
 ---
+Maria Eduarda Pinto de Oliveira Rodrigues
 Mariana Rasmussen Rezende Alves
 
 

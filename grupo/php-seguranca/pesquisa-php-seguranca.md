@@ -489,6 +489,20 @@ Essas funções são muito utilizadas em sistemas bancários, aplicações corpo
 
 ---
 
+## Comunicação segura com HTTPS
+
+O protocolo **HTTPS (HyperText Transfer Protocol Secure)** utiliza o protocolo **TLS (Transport Layer Security)** para criptografar a comunicação entre o navegador e o servidor. Dessa forma, informações como senhas, dados bancários e informações pessoais são transmitidas de forma segura, reduzindo o risco de interceptação por terceiros.
+
+### Figura 4 – Funcionamento do HTTPS
+
+![Funcionamento do HTTPS](imagens/https.png)
+
+*Figura 4 – Comunicação segura entre cliente e servidor utilizando o protocolo HTTPS.*
+
+---
+---
+
+
 # 6. Proteção de Senhas
 
 As senhas representam uma das principais formas de autenticação em aplicações web. Por esse motivo, devem ser armazenadas de maneira segura, evitando que possam ser recuperadas caso ocorra um vazamento do banco de dados.

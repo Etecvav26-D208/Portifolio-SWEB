@@ -45,6 +45,11 @@ A disponibilidade garante que as informações estejam acessíveis sempre que fo
 
 Um sistema hospitalar precisa permanecer disponível para que médicos tenham acesso ao histórico dos pacientes durante emergências.
 
+### Figura 1 – Tríade CIA
+
+![Tríade CIA](php-segurança/imagens/)
+
+*Figura 1 – Os três pilares da Segurança da Informação.*
 ---
 
 ## Por que proteger os dados dos usuários?

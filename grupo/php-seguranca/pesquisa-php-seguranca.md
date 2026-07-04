@@ -151,7 +151,7 @@ $criptografado = openssl_encrypt(
 );
 ```
 
----## Hash
+## Hash
 
 O hash é uma técnica que transforma uma informação em uma sequência de caracteres de tamanho fixo, chamada de **valor hash** ou **digest**. Diferentemente da criptografia, o hash é um processo **unidirecional**, ou seja, depois que a informação é transformada em hash, não é possível recuperar seu conteúdo original.
 
@@ -616,6 +616,28 @@ Como o navegador já possui uma sessão válida, o servidor acredita que a açã
 - Utilizar Tokens CSRF;
 - Verificar origem das requisições;
 - Utilizar cookies seguros.
+
+---
+### Fluxograma do armazenamento de senhas
+
+```text
+Usuário
+     │
+     ▼
+ Digita a senha
+     │
+     ▼
+password_hash()
+     │
+     ▼
+Banco de Dados
+     │
+     ▼
+password_verify()
+     │
+     ▼
+Login autorizado
+```
 
 ---
 

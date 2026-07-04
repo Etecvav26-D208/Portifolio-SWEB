@@ -124,6 +124,11 @@ Embora sejam frequentemente confundidos, criptografia, hash e codificação poss
 | Criptografia | Proteger informações | Sim | Dados confidenciais |
 | Hash | Garantir integridade e armazenar senhas | Não | Senhas e validação |
 | Codificação | Converter dados para outro formato | Sim | Transmissão de dados |
+### Figura 2 – Comparação entre Criptografia, Hash e Codificação
+
+![Comparação](php-segurança/imagens/)
+
+*Figura 2 – Comparação entre as técnicas utilizadas na proteção de dados.*
 
 ## Criptografia
 

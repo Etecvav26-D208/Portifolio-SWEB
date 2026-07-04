@@ -485,7 +485,12 @@ $texto = openssl_decrypt(
 );
 ```
 
-Essas funções são muito utilizadas em sistemas bancários, aplicações corporativas e plataformas que precisam proteger informações sensíveis durante o armazenamento ou transmissão.# 6. Proteção de Senhas
+Essas funções são muito utilizadas em sistemas bancários, aplicações corporativas e plataformas que precisam proteger informações sensíveis durante o armazenamento ou transmissão.
+
+---
+
+# 6. Proteção de Senhas
+
 
 As senhas representam uma das principais formas de autenticação em aplicações web. Por esse motivo, devem ser armazenadas de maneira segura, evitando que possam ser recuperadas caso ocorra um vazamento do banco de dados.
 

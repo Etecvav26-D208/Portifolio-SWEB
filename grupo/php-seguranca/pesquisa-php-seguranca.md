@@ -160,7 +160,11 @@ $criptografado = openssl_encrypt(
     $chave
 );
 ```
+### Figura 3 – Funcionamento da Criptografia
 
+![Criptografia](php-segurança/imagens/)
+
+*Figura 3 – Processo de criptografia e descriptografia utilizando uma chave.*
 ## Hash
 
 O hash é uma técnica que transforma uma informação em uma sequência de caracteres de tamanho fixo, chamada de **valor hash** ou **digest**. Diferentemente da criptografia, o hash é um processo **unidirecional**, ou seja, depois que a informação é transformada em hash, não é possível recuperar seu conteúdo original.

@@ -491,7 +491,6 @@ Essas funções são muito utilizadas em sistemas bancários, aplicações corpo
 
 # 6. Proteção de Senhas
 
-
 As senhas representam uma das principais formas de autenticação em aplicações web. Por esse motivo, devem ser armazenadas de maneira segura, evitando que possam ser recuperadas caso ocorra um vazamento do banco de dados.
 
 ## Como uma senha deve ser armazenada corretamente?
@@ -511,6 +510,26 @@ $hash = password_hash($senha, PASSWORD_DEFAULT);
 No banco de dados será armazenado apenas o hash.
 
 ---
+### Fluxograma do armazenamento de senhas
+
+```text
+Usuário
+     │
+     ▼
+ Digita a senha
+     │
+     ▼
+password_hash()
+     │
+     ▼
+Banco de Dados
+     │
+     ▼
+password_verify()
+     │
+     ▼
+Login autorizado
+```
 
 ## Por que nunca devemos salvar senhas em texto puro?
 
@@ -635,28 +654,6 @@ Como o navegador já possui uma sessão válida, o servidor acredita que a açã
 - Utilizar Tokens CSRF;
 - Verificar origem das requisições;
 - Utilizar cookies seguros.
-
----
-### Fluxograma do armazenamento de senhas
-
-```text
-Usuário
-     │
-     ▼
- Digita a senha
-     │
-     ▼
-password_hash()
-     │
-     ▼
-Banco de Dados
-     │
-     ▼
-password_verify()
-     │
-     ▼
-Login autorizado
-```
 
 ---
 

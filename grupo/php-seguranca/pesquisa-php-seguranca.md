@@ -45,7 +45,6 @@ A disponibilidade garante que as informações estejam acessíveis sempre que fo
 
 Um sistema hospitalar precisa permanecer disponível para que médicos tenham acesso ao histórico dos pacientes durante emergências.
 
-### Figura 1 – Tríade CIA
 
 ![Tríade CIA](grupo/php-segurança/imagens/triadeCIA.jpg)
 

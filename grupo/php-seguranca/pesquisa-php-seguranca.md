@@ -47,7 +47,7 @@ Um sistema hospitalar precisa permanecer disponível para que médicos tenham ac
 
 ### Figura 1 – Tríade CIA
 
-![Tríade CIA](php-segurança/imagens/)
+![Tríade CIA](php-segurança/imagens/triadeCIA.png)
 
 *Figura 1 – Os três pilares da Segurança da Informação.*
 ---

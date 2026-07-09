@@ -44,6 +44,7 @@ Em um sistema escolar, por exemplo, um aluno não pode modificar suas próprias 
 A disponibilidade garante que as informações estejam acessíveis sempre que forem necessárias para usuários autorizados.
 
 Um sistema hospitalar precisa permanecer disponível para que médicos tenham acesso ao histórico dos pacientes durante emergências.
+### Figura 1 – Tríade CIA
 
 ![Tríade CIA](imagens/triadeCIA.jpg)
 
@@ -122,6 +123,8 @@ Embora sejam frequentemente confundidos, criptografia, hash e codificação poss
 | Criptografia | Proteger informações | Sim | Dados confidenciais |
 | Hash | Garantir integridade e armazenar senhas | Não | Senhas e validação |
 | Codificação | Converter dados para outro formato | Sim | Transmissão de dados |
+
+### Figura 2 – Comparação entre Criptografia, Hash e Codificação
 
 ![Comparação](imagens/criptografia.png)
 

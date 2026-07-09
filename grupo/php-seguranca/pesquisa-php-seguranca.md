@@ -46,6 +46,7 @@ A disponibilidade garante que as informações estejam acessíveis sempre que fo
 Um sistema hospitalar precisa permanecer disponível para que médicos tenham acesso ao histórico dos pacientes durante emergências.
 
 ![Tríade CIA](imagens/triadeCIA.jpg)
+
 *Figura 1 – Os três pilares da Segurança da Informação.*
 ---
 
@@ -121,7 +122,6 @@ Embora sejam frequentemente confundidos, criptografia, hash e codificação poss
 | Criptografia | Proteger informações | Sim | Dados confidenciais |
 | Hash | Garantir integridade e armazenar senhas | Não | Senhas e validação |
 | Codificação | Converter dados para outro formato | Sim | Transmissão de dados |
-### Figura 2 – Comparação entre Criptografia, Hash e Codificação
 
 ![Comparação](imagens/criptografia.png)
 
@@ -159,9 +159,10 @@ $criptografado = openssl_encrypt(
 ```
 ### Figura 3 – Funcionamento da Criptografia
 
-![Criptografia](php-segurança/imagens/)
+![Criptografia](imagens/diagrama3.ppm)
 
 *Figura 3 – Processo de criptografia e descriptografia utilizando uma chave.*
+
 ## Hash
 
 O hash é uma técnica que transforma uma informação em uma sequência de caracteres de tamanho fixo, chamada de **valor hash** ou **digest**. Diferentemente da criptografia, o hash é um processo **unidirecional**, ou seja, depois que a informação é transformada em hash, não é possível recuperar seu conteúdo original.

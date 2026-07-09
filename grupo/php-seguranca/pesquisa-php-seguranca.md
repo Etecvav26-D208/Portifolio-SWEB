@@ -49,6 +49,7 @@ Um sistema hospitalar precisa permanecer disponível para que médicos tenham ac
 ![Tríade CIA](imagens/triadeCIA.jpg)
 
 *Figura 1 – Os três pilares da Segurança da Informação.*
+
 ---
 
 ## Por que proteger os dados dos usuários?

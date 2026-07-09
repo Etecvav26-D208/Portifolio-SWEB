@@ -123,7 +123,7 @@ Embora sejam frequentemente confundidos, criptografia, hash e codificação poss
 | Codificação | Converter dados para outro formato | Sim | Transmissão de dados |
 ### Figura 2 – Comparação entre Criptografia, Hash e Codificação
 
-![Comparação](php-segurança/imagens/)
+![Comparação](imagens/criptografia.png)
 
 *Figura 2 – Comparação entre as técnicas utilizadas na proteção de dados.*
 

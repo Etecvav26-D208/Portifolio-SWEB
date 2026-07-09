@@ -493,11 +493,10 @@ O protocolo **HTTPS (HyperText Transfer Protocol Secure)** utiliza o protocolo *
 
 ### Figura 4 – Funcionamento do HTTPS
 
-![Funcionamento do HTTPS]](imagens/imagem4.png).
+![Funcionamento do HTTPS](imagens/imagem4.png)
 
 *Figura 4 – Comunicação segura entre cliente e servidor utilizando o protocolo HTTPS.*
 
----
 ---
 
 

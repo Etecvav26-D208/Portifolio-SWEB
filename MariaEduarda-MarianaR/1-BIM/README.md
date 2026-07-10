@@ -1,33 +1,7 @@
-# 🌐 1º Bimestre - Sistemas Web
+# 📚 1º Bimestre
 
-## 👩‍💻 Sobre esta pasta
+Bem-vindo(a) à pasta do **1º Bimestre** da disciplina de **Sistemas Web**! 🌐
 
-Seja bem-vindo(a)! ✨
+Aqui estão organizadas todas as atividades, exercícios, projetos e materiais desenvolvidos durante este período letivo.
 
-Esta pasta foi criada para armazenar e organizar todas as atividades, exercícios, projetos e demais materiais desenvolvidos durante o **1º bimestre** da disciplina de **Sistemas Web**.
-
-📚 **Dupla:**
-- 👩 Maria Eduarda
-- 👩 Mariana
-
-🏫 **Turma:** 2ºD  
-🎓 **Escola:** ETEC Vasco Antônio Venchiarutti  
-📅 **Ano letivo:** 2026
-
----
-
-## 📂 Conteúdo
-
-Nesta pasta você encontrará:
-
-- 📝 Atividades propostas em aula;
-- 💻 Exercícios e práticas;
-- 🌍 Projetos relacionados ao desenvolvimento web;
-- 📖 Materiais e arquivos utilizados durante o bimestre.
-
----
-
-> ✨ **Organização é o primeiro passo para um bom desenvolvimento!**
->
-> Bom estudo! 🚀
-```
+> 💻 Aprendendo, praticando e evoluindo a cada atividade! 🚀

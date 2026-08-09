@@ -184,6 +184,35 @@
 
                 </div>
 
+            
+                    <h3>Criptografia</h3>
+
+                    <p>
+                        Protege uma informação que pode ser recuperada
+                        utilizando a chave correta.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Projeto de Sistemas Web • Criptografia no PHP
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
+
 
                 <div>
             

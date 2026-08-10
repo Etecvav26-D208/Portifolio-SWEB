@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f2f7;
+    color: #333;
+}
+
+
+/* CABEÇALHO */
+
+header {
+    background-color: #321842;
+    color: white;
+    padding: 20px 10%;
+}
+
+header h1 {
+    margin: 0 0 15px;
+}
+
+nav a {
+    color: #ddd0e5;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+
+/* CONTEÚDO */
+
+main {
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.inicio {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.inicio h2 {
+    color: #321842;
+    font-size: 32px;
+}
+
+.inicio p {
+    color: #666;
+}
+
+.titulo {
+    color: #321842;
+}
+
+
+/* CARDS */
+
+.card {
+    background-color: white;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border-left: 4px solid #683881;
+}
+
+.card h2 {
+    color: #432052;
+}
+
+.card h3 {
+    color: #683881;
+}
+
+.metodos {
+    display: flex;
+    gap: 20px;
+}
+
+.metodos .card {
+    flex: 1;
+}
+
+
+
+/* FORMULÁRIO */
+
+label {
+    display: block;
+    margin: 20px 0 8px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #683881;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #532866;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #683881;
+}
+
+
+/* RESULTADOS */
+
+.resultado {
+    background-color: #f0ebf3;
+    padding: 15px;
+    border-radius: 5px;
+    word-break: break-all;
+}
+
+.voltar {
+    display: inline-block;
+    background-color: #532866;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin: 10px 0 40px;
+}
+
+
+/* RODAPÉ */
+
+footer {
+    background-color: #24112e;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    main {
+        width: 90%;
+    }
+
+    .metodos {
+        display: block;
+    }
+
+}

@@ -1,343 +1,169 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f5edff,
-            #eadcff
-        );
-
-    color: #3b2357;
-
-    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f2f7;
+    color: #333;
 }
 
+
+/* CABEÇALHO */
 
 header {
-    background:
-        linear-gradient(
-            135deg,
-            #5b21b6,
-            #7c3aed,
-            #9333ea
-        );
-
+    background-color: #321842;
     color: white;
-
-    text-align: center;
-
-    padding: 50px 20px;
-
-    box-shadow:
-        0 5px 20px
-        rgba(91, 33, 182, 0.25);
+    padding: 20px 10%;
 }
-
 
 header h1 {
-    font-size: 38px;
+    margin: 0 0 15px;
+}
 
-    margin-bottom: 12px;
+nav a {
+    color: #ddd0e5;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    color: white;
 }
 
 
-header p {
-    font-size: 17px;
+/* CONTEÚDO */
 
-    color: #f3e8ff;
+main {
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.inicio {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.inicio h2 {
+    color: #321842;
+    font-size: 32px;
+}
+
+.inicio p {
+    color: #666;
+}
+
+.titulo {
+    color: #321842;
 }
 
 
-.container {
-    width: 90%;
-
-    max-width: 900px;
-
-    margin: 40px auto;
-}
-
+/* CARDS */
 
 .card {
     background-color: white;
-
-    padding: 28px;
-
-    margin-bottom: 25px;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 25px
-        rgba(88, 28, 135, 0.10);
-
-    border:
-        1px solid #eadcff;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border-left: 4px solid #683881;
 }
-
 
 .card h2 {
-    color: #6d28d9;
-
-    margin-bottom: 15px;
+    color: #432052;
 }
 
-
-.introducao p {
-    line-height: 1.7;
-
-    margin-top: 8px;
+.card h3 {
+    color: #683881;
 }
 
-
-.descricao {
-    margin-bottom: 18px;
-
-    color: #6b5b7a;
-}
-
-
-form {
+.metodos {
     display: flex;
-
-    flex-direction: column;
+    gap: 20px;
 }
 
+.metodos .card {
+    flex: 1;
+}
+
+
+/* FORMULÁRIO */
 
 label {
+    display: block;
+    margin: 20px 0 8px;
     font-weight: bold;
-
-    color: #5b21b6;
-
-    margin-bottom: 8px;
 }
-
 
 input {
     width: 100%;
-
-    padding: 14px;
-
-    font-size: 15px;
-
-    border:
-        2px solid #d8b4fe;
-
-    border-radius: 10px;
-
-    outline: none;
-
-    transition: 0.3s;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-
 
 input:focus {
-    border-color: #8b5cf6;
-
-    box-shadow:
-        0 0 8px
-        rgba(139, 92, 246, 0.30);
+    outline: none;
+    border-color: #683881;
 }
-
 
 button {
-    width: fit-content;
-
-    background:
-        linear-gradient(
-            135deg,
-            #7c3aed,
-            #9333ea
-        );
-
-    color: white;
-
+    margin-top: 15px;
+    padding: 12px 20px;
     border: none;
-
-    padding: 13px 28px;
-
-    margin-top: 18px;
-
-    border-radius: 10px;
-
-    font-size: 15px;
-
-    font-weight: bold;
-
+    border-radius: 5px;
+    background-color: #532866;
+    color: white;
     cursor: pointer;
-
-    transition: 0.3s;
 }
-
 
 button:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 6px 15px
-        rgba(124, 58, 237, 0.30);
+    background-color: #683881;
 }
 
 
-.titulo-resultados {
-    color: #5b21b6;
-
-    margin:
-        35px
-        0
-        20px;
-}
-
-
-.resultado-card {
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 20px;
-}
-
-
-.icone {
-    width: 55px;
-    height: 55px;
-
-    min-width: 55px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 15px;
-
-    background-color: #ede9fe;
-
-    color: #6d28d9;
-
-    font-size: 23px;
-
-    font-weight: bold;
-}
-
-
-.conteudo {
-    width: 100%;
-}
-
-
-.conteudo h3 {
-    color: #6d28d9;
-
-    margin-bottom: 8px;
-}
-
-
-.conteudo p {
-    color: #6b5b7a;
-
-    line-height: 1.5;
-}
-
+/* RESULTADOS */
 
 .resultado {
-    background-color: #faf5ff;
-
-    border:
-        1px solid #e9d5ff;
-
-    color: #5b21b6;
-
+    background-color: #f0ebf3;
     padding: 15px;
-
-    margin-top: 15px;
-
-    border-radius: 10px;
-
+    border-radius: 5px;
     word-break: break-all;
+}
 
-    font-family: monospace;
+.voltar {
+    display: inline-block;
+    background-color: #532866;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin: 10px 0 40px;
 }
 
 
-.comparacao {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 20px;
-}
-
-
-.comparacao div {
-    background-color: #faf5ff;
-
-    border:
-        1px solid #e9d5ff;
-
-    border-radius: 12px;
-
-    padding: 20px;
-}
-
-
-.comparacao h3 {
-    color: #7c3aed;
-
-    margin-bottom: 10px;
-}
-
-
-.comparacao p {
-    line-height: 1.6;
-}
-
+/* RODAPÉ */
 
 footer {
-    background-color: #4c1d95;
-
-    color: #ede9fe;
-
+    background-color: #24112e;
+    color: #ccc;
     text-align: center;
-
-    padding: 22px;
-
-    margin-top: 40px;
+    padding: 20px;
+    margin-top: 50px;
 }
 
 
-@media (max-width: 600px) {
+/* CELULAR */
 
-    header h1 {
-        font-size: 30px;
+@media (max-width: 700px) {
+
+    main {
+        width: 90%;
     }
 
-
-    .container {
-        width: 94%;
-    }
-
-
-    .resultado-card {
-        flex-direction: column;
-    }
-
-
-    .comparacao {
-        grid-template-columns: 1fr;
-    }
-
-
-    button {
-        width: 100%;
+    .metodos {
+        display: block;
     }
 
 }

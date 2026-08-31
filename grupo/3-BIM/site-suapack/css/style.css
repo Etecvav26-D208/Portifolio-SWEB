@@ -1,0 +1,197 @@
+/* =========================
+   PROMOÇÕES
+========================= */
+
+.promocoes {
+    padding: 120px 6%;
+    background: var(--preto);
+}
+
+.promo-banner {
+    min-height: 420px;
+    padding: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    background: var(--amarelo);
+    color: black;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.promo-tag {
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.promo-texto h2 {
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: clamp(65px, 8vw, 120px);
+
+    line-height: 0.8;
+}
+
+.promo-texto h2 span {
+    color: #111;
+}
+
+.promo-descricao {
+    max-width: 500px;
+
+    margin: 25px 0;
+
+    line-height: 1.7;
+}
+
+.promo-botao {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    background: black;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.promo-botao:hover {
+    background: var(--verde);
+    color: black;
+}
+
+
+/* CÍRCULO DE DESCONTO */
+
+.promo-destaque {
+    min-width: 230px;
+    min-height: 230px;
+
+    border: 5px solid black;
+
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transform: rotate(8deg);
+}
+
+.promo-destaque span {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.promo-destaque strong {
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 90px;
+
+    line-height: 0.9;
+}
+
+
+/* CARDS DAS OFERTAS */
+
+.ofertas {
+    margin-top: 35px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.oferta-card {
+    background: #f0f0ea;
+    color: black;
+
+    padding-bottom: 25px;
+
+    position: relative;
+}
+
+.oferta-imagem {
+    height: 350px;
+
+    background: #d8d8d0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 55px;
+
+    color: #aaa;
+}
+
+.desconto {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    background: var(--verde);
+    color: black;
+
+    padding: 8px 12px;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.oferta-card .produto-categoria {
+    margin: 18px 20px 0;
+}
+
+.oferta-card h3 {
+    margin: 5px 20px;
+}
+
+.precos {
+    margin: 10px 20px 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.preco-antigo {
+    color: #777;
+
+    font-size: 13px;
+
+    text-decoration: line-through;
+}
+
+.preco-promocional {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.oferta-card > a {
+    margin: 0 20px;
+
+    color: black;
+
+    font-size: 12px;
+    font-weight: 700;
+}

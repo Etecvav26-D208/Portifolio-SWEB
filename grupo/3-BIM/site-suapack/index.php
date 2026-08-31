@@ -205,6 +205,21 @@
 
         </section>
 
+        
+        <a href="#" class="categoria-card" id="pulseiras">
+
+    <span class="numero">
+        06
+    </span>
+
+    <div>
+        <p>ACCESSORIES</p>
+        <h3>PULSEIRAS</h3>
+        <span>VER PRODUTOS →</span>
+    </div>
+
+</a>
+
 
         <!-- PROMOÇÕES -->
         <section class="promocoes" id="promocoes">

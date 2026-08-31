@@ -33,6 +33,7 @@
             <a href="#chaveiros">Chaveiros</a>
             <a href="#pingentes">Pingentes</a>
             <a href="#adesivos">Adesivos</a>
+            <a href="#adesivos">Pulseiras</a>
             <a href="#promocoes">Promoções</a>
         </nav>
 

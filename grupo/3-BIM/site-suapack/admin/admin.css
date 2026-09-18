@@ -1,1 +1,602 @@
+/* =========================================
+   SUA PACK - PAINEL ADMINISTRATIVO
+   ========================================= */
 
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ---------- VARIÁVEIS ---------- */
+
+:root {
+    --preto: #0b0b0b;
+    --preto-card: #121212;
+    --cinza: #171717;
+    --cinza-claro: #292929;
+    --cinza-texto: #9b9b9b;
+
+    --amarelo: #f4e900;
+    --verde: #a6ff00;
+
+    --branco: #f5f5f5;
+}
+
+
+/* ---------- BASE ---------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--preto);
+    color: var(--branco);
+
+    font-family: "Poppins", sans-serif;
+
+    min-height: 100vh;
+}
+
+
+/* ---------- CABEÇALHO ---------- */
+
+.admin-header {
+    min-height: 82px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--cinza-claro);
+}
+
+
+/* LOGO */
+
+.logo {
+    color: var(--branco);
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 34px;
+    letter-spacing: 2px;
+
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--amarelo);
+}
+
+
+/* IDENTIFICAÇÃO */
+
+.admin-identificacao {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--cinza-texto);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+}
+
+.status {
+    width: 8px;
+    height: 8px;
+
+    background: var(--verde);
+
+    border-radius: 50%;
+}
+
+
+/* VOLTAR */
+
+.voltar-site {
+    color: var(--branco);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.voltar-site:hover {
+    color: var(--amarelo);
+}
+
+
+/* ---------- CONTAINER ---------- */
+
+.admin-container {
+    width: 86%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 75px 0;
+}
+
+
+/* ---------- BOAS-VINDAS ---------- */
+
+.boas-vindas {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 55px;
+}
+
+
+.etiqueta {
+    color: var(--verde);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.boas-vindas h1 {
+    margin-top: 14px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: clamp(58px, 8vw, 105px);
+
+    line-height: 0.85;
+
+    letter-spacing: 1px;
+}
+
+.boas-vindas h1 span {
+    color: var(--amarelo);
+}
+
+
+.boas-vindas p {
+    max-width: 570px;
+
+    margin-top: 25px;
+
+    color: var(--cinza-texto);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* NÚMERO */
+
+.admin-data {
+    text-align: right;
+}
+
+.admin-data span {
+    display: block;
+
+    color: var(--cinza-texto);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.admin-data strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--amarelo);
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 55px;
+
+    line-height: 1;
+}
+
+
+/* ---------- CARDS ---------- */
+
+.admin-menu {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.admin-card {
+    min-height: 390px;
+
+    padding: 28px;
+
+    background: var(--preto-card);
+
+    border: 1px solid var(--cinza-claro);
+
+    color: var(--branco);
+
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* DETALHE DECORATIVO */
+
+.admin-card::after {
+    content: "";
+
+    width: 110px;
+    height: 110px;
+
+    position: absolute;
+
+    right: -45px;
+    top: -45px;
+
+    border-radius: 50%;
+
+    background: var(--amarelo);
+
+    opacity: 0;
+
+    transition: 0.3s;
+}
+
+
+.admin-card:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--amarelo);
+}
+
+
+.admin-card:hover::after {
+    opacity: 1;
+}
+
+
+/* TOPO DO CARD */
+
+.card-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--amarelo);
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 24px;
+}
+
+
+.icone {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 22px;
+
+    transition: 0.3s;
+}
+
+.admin-card:hover .icone {
+    transform: translate(4px, -4px);
+}
+
+
+/* CONTEÚDO */
+
+.card-label {
+    color: var(--cinza-texto);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.card-conteudo h2 {
+    margin: 8px 0 12px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 48px;
+
+    letter-spacing: 1px;
+}
+
+
+.card-conteudo p {
+    max-width: 330px;
+
+    color: var(--cinza-texto);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* RODAPÉ DO CARD */
+
+.card-rodape {
+    padding-top: 20px;
+
+    border-top: 1px solid var(--cinza-claro);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--verde);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* ---------- BLOCO INFORMATIVO ---------- */
+
+.admin-info {
+    margin-top: 20px;
+
+    padding: 25px 30px;
+
+    background: var(--amarelo);
+
+    color: var(--preto);
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr 1fr;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.info-numero {
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 30px;
+
+    line-height: 0.85;
+
+    letter-spacing: 1px;
+}
+
+
+.info-texto span {
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.info-texto p {
+    max-width: 500px;
+
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.info-status {
+    justify-self: end;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.bolinha {
+    width: 8px;
+    height: 8px;
+
+    background: var(--preto);
+
+    border-radius: 50%;
+}
+
+
+/* ---------- RODAPÉ ---------- */
+
+.admin-footer {
+    padding: 25px 7%;
+
+    border-top: 1px solid var(--cinza-claro);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--cinza-texto);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+.admin-footer a {
+    color: var(--amarelo);
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.admin-footer a:hover {
+    color: var(--verde);
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .admin-header {
+        padding: 0 5%;
+    }
+
+    .admin-identificacao {
+        display: none;
+    }
+
+    .admin-container {
+        width: 90%;
+        padding: 55px 0;
+    }
+
+    .boas-vindas {
+        align-items: flex-start;
+    }
+
+    .admin-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-card {
+        min-height: 300px;
+    }
+
+    .admin-info {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .info-status {
+        justify-self: start;
+        grid-column: 2;
+    }
+
+    .admin-footer {
+        padding: 25px 5%;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .admin-header {
+        min-height: 70px;
+
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .voltar-site {
+        font-size: 11px;
+    }
+
+    .admin-container {
+        width: calc(100% - 40px);
+
+        padding: 45px 0;
+    }
+
+    .boas-vindas {
+        display: block;
+
+        margin-bottom: 40px;
+    }
+
+    .boas-vindas h1 {
+        font-size: 65px;
+    }
+
+    .boas-vindas p {
+        font-size: 13px;
+    }
+
+    .admin-data {
+        display: none;
+    }
+
+    .admin-card {
+        min-height: 330px;
+
+        padding: 24px;
+    }
+
+    .card-conteudo h2 {
+        font-size: 42px;
+    }
+
+    .admin-info {
+        display: block;
+
+        padding: 25px;
+    }
+
+    .info-texto {
+        margin: 20px 0;
+    }
+
+    .info-status {
+        justify-self: auto;
+    }
+
+    .admin-footer {
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+}

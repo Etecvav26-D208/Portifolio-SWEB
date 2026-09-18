@@ -1,9 +1,9 @@
-
-
-
 /* ========================================
-   CONFIGURAÇÕES GERAIS
-======================================== */
+   SUA PACK - SITE
+   ======================================== */
+
+
+/* ---------- CONFIGURAÇÕES GERAIS ---------- */
 
 * {
     margin: 0;
@@ -12,7 +12,7 @@
 }
 
 
-/* Cores principais da SUA PACK */
+/* ---------- VARIÁVEIS ---------- */
 
 :root {
     --preto: #0b0b0b;
@@ -24,14 +24,14 @@
 }
 
 
-/* Rolagem suave */
+/* ---------- ROLAGEM ---------- */
 
 html {
     scroll-behavior: smooth;
 }
 
 
-/* Corpo do site */
+/* ---------- CORPO DO SITE ---------- */
 
 body {
     background-color: var(--preto);
@@ -45,7 +45,7 @@ body {
 
 /* ========================================
    CABEÇALHO
-======================================== */
+   ======================================== */
 
 .header {
     min-height: 85px;
@@ -69,7 +69,7 @@ body {
 }
 
 
-/* Logo */
+/* LOGO */
 
 .logo {
     font-family: "Bebas Neue", Impact, sans-serif;
@@ -87,7 +87,7 @@ body {
 }
 
 
-/* Menu */
+/* MENU */
 
 .menu {
     display: flex;
@@ -120,7 +120,7 @@ body {
 }
 
 
-/* Carrinho */
+/* CARRINHO */
 
 .carrinho {
     color: var(--branco);
@@ -140,7 +140,7 @@ body {
 
 /* ========================================
    BANNER PRINCIPAL / HERO
-======================================== */
+   ======================================== */
 
 .hero {
     min-height: calc(100vh - 85px);
@@ -159,7 +159,7 @@ body {
 }
 
 
-/* Pequeno texto acima do título */
+/* PEQUENO TEXTO */
 
 .tag {
     color: var(--verde);
@@ -174,7 +174,7 @@ body {
 }
 
 
-/* Título principal */
+/* TÍTULO */
 
 .hero h1 {
     font-family: "Bebas Neue", Impact, sans-serif;
@@ -192,7 +192,7 @@ body {
 }
 
 
-/* Descrição */
+/* DESCRIÇÃO */
 
 .descricao {
     max-width: 520px;
@@ -207,7 +207,7 @@ body {
 }
 
 
-/* Botão principal */
+/* BOTÃO */
 
 .botao {
     display: inline-block;
@@ -237,7 +237,7 @@ body {
 
 /* ========================================
    IMAGEM PRINCIPAL
-======================================== */
+   ======================================== */
 
 .hero-imagem {
     display: flex;
@@ -285,7 +285,7 @@ body {
 
 /* ========================================
    SOBRE A MARCA
-======================================== */
+   ======================================== */
 
 .sobre {
     padding: 120px 10%;
@@ -342,7 +342,7 @@ body {
 
 /* ========================================
    TÍTULOS DAS SEÇÕES
-======================================== */
+   ======================================== */
 
 .titulo-secao p {
     color: var(--verde);
@@ -368,7 +368,7 @@ body {
 
 /* ========================================
    CATEGORIAS
-======================================== */
+   ======================================== */
 
 .categorias {
     padding: 120px 6%;
@@ -386,7 +386,7 @@ body {
 }
 
 
-/* Card de cada categoria */
+/* CARD DE CADA CATEGORIA */
 
 .categoria-card {
     min-height: 320px;
@@ -420,7 +420,7 @@ body {
 }
 
 
-/* Número da categoria */
+/* NÚMERO DA CATEGORIA */
 
 .numero {
     opacity: 0.5;
@@ -458,7 +458,7 @@ body {
 
 /* ========================================
    PROMOÇÕES
-======================================== */
+   ======================================== */
 
 .promocoes {
     padding: 120px 6%;
@@ -467,7 +467,7 @@ body {
 }
 
 
-/* Banner amarelo */
+/* BANNER AMARELO */
 
 .promo-banner {
     min-height: 420px;
@@ -528,7 +528,7 @@ body {
 }
 
 
-/* Botão das promoções */
+/* BOTÃO DAS PROMOÇÕES */
 
 .promo-botao {
     display: inline-block;
@@ -560,7 +560,7 @@ body {
 
 /* ========================================
    CÍRCULO 30% OFF
-======================================== */
+   ======================================== */
 
 .promo-destaque {
     min-width: 230px;
@@ -601,7 +601,7 @@ body {
 
 /* ========================================
    PRODUTOS EM PROMOÇÃO
-======================================== */
+   ======================================== */
 
 .ofertas {
     margin-top: 35px;
@@ -627,30 +627,37 @@ body {
 }
 
 
-/* Imagem temporária */
+/* IMAGEM DA OFERTA */
 
 .oferta-imagem {
     width: 100%;
 
-    height: 350px;
+    aspect-ratio: 1 / 1;
 
-    background-color: #d8d8d0;
+    background-color: #fff;
+
+    overflow: hidden;
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
-
-    font-family: "Bebas Neue", Impact, sans-serif;
-
-    font-size: 55px;
-
-    color: #aaa;
 }
 
 
-/* Desconto */
+.oferta-imagem img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* DESCONTO */
 
 .desconto {
     position: absolute;
@@ -683,7 +690,7 @@ body {
 }
 
 
-/* Preços */
+/* PREÇOS */
 
 .precos {
     margin: 10px 20px 15px;
@@ -730,7 +737,7 @@ body {
 
 /* ========================================
    PRODUTOS EM DESTAQUE
-======================================== */
+   ======================================== */
 
 .destaques {
     padding: 120px 6%;
@@ -741,7 +748,7 @@ body {
 }
 
 
-/* Corrige a cor do pequeno título nessa seção */
+/* CORRIGE A COR DO PEQUENO TÍTULO */
 
 .destaques .titulo-secao p {
     color: #555;
@@ -762,14 +769,16 @@ body {
 }
 
 
-/* Imagem temporária do produto */
+/* IMAGEM DO PRODUTO */
 
 .produto-imagem {
     width: 100%;
 
-    height: 400px;
+    aspect-ratio: 1 / 1;
 
-    background-color: #d8d8d0;
+    background-color: #fff;
+
+    overflow: hidden;
 
     display: flex;
 
@@ -777,13 +786,18 @@ body {
 
     justify-content: center;
 
-    font-family: "Bebas Neue", Impact, sans-serif;
-
-    font-size: 60px;
-
-    color: #aaa;
-
     transition: 0.3s;
+}
+
+
+.produto-imagem img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
 }
 
 
@@ -792,7 +806,7 @@ body {
 }
 
 
-/* Categoria do produto */
+/* CATEGORIA DO PRODUTO */
 
 .produto-categoria {
     margin-top: 15px;
@@ -814,7 +828,7 @@ body {
 }
 
 
-/* Preço */
+/* PREÇO */
 
 .preco {
     margin-bottom: 12px;
@@ -843,7 +857,7 @@ body {
 
 /* ========================================
    RODAPÉ
-======================================== */
+   ======================================== */
 
 .footer {
     padding: 80px 6% 40px;
@@ -871,7 +885,7 @@ body {
 }
 
 
-/* Redes sociais */
+/* REDES SOCIAIS */
 
 .redes {
     margin: 25px 0;
@@ -909,7 +923,7 @@ body {
 
 /* ========================================
    TABLET
-======================================== */
+   ======================================== */
 
 @media (max-width: 900px) {
 
@@ -920,7 +934,7 @@ body {
     }
 
 
-    /* Hero vira uma coluna */
+    /* HERO VIRA UMA COLUNA */
 
     .hero {
         grid-template-columns: 1fr;
@@ -936,14 +950,14 @@ body {
     }
 
 
-    /* Categorias */
+    /* CATEGORIAS */
 
     .grade-categorias {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* Promoção */
+    /* PROMOÇÃO */
 
     .promo-banner {
         flex-direction: column;
@@ -957,7 +971,7 @@ body {
     }
 
 
-    /* Produtos */
+    /* PRODUTOS */
 
     .grade-produtos {
         grid-template-columns: repeat(2, 1fr);
@@ -968,11 +982,11 @@ body {
 
 /* ========================================
    CELULAR
-======================================== */
+   ======================================== */
 
 @media (max-width: 600px) {
 
-    /* Cabeçalho */
+    /* CABEÇALHO */
 
     .header {
         min-height: 70px;
@@ -986,7 +1000,7 @@ body {
     }
 
 
-    /* Hero */
+    /* HERO */
 
     .hero {
         min-height: auto;
@@ -1018,7 +1032,7 @@ body {
     }
 
 
-    /* Espaçamento das seções */
+    /* ESPAÇAMENTO DAS SEÇÕES */
 
     .sobre,
     .categorias,
@@ -1028,7 +1042,7 @@ body {
     }
 
 
-    /* Categorias */
+    /* CATEGORIAS */
 
     .grade-categorias {
         grid-template-columns: 1fr;
@@ -1040,7 +1054,7 @@ body {
     }
 
 
-    /* Promoções */
+    /* PROMOÇÕES */
 
     .promo-banner {
         padding: 35px 25px;
@@ -1064,19 +1078,14 @@ body {
     }
 
 
-    /* Produtos */
+    /* PRODUTOS */
 
     .grade-produtos {
         grid-template-columns: 1fr;
     }
 
 
-    .produto-imagem {
-        height: 350px;
-    }
-
-
-    /* Footer */
+    /* RODAPÉ */
 
     .footer-logo {
         font-size: 55px;

@@ -1,3 +1,8 @@
+<?php
+
+include("includes/produtos.php");
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

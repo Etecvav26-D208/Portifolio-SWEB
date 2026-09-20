@@ -1,9 +1,12 @@
+
 <?php
 
 include("includes/produtos.php");
 include("includes/promocoes.php");
+include("includes/categorias.php");
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,6 +19,7 @@ include("includes/promocoes.php");
     <title>SUA PACK | Custom Style</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap"
@@ -28,7 +32,9 @@ include("includes/promocoes.php");
 <body>
 
 
+    <!-- ========================================= -->
     <!-- CABEÇALHO -->
+    <!-- ========================================= -->
 
     <header class="header">
 
@@ -39,21 +45,21 @@ include("includes/promocoes.php");
 
         <nav class="menu">
 
-            <a href="#inicio">Início</a>
+            <a href="#inicio">
+                Início
+            </a>
 
-            <a href="#mochilas">Mochilas</a>
+            <a href="#categorias">
+                Categorias
+            </a>
 
-            <a href="#bones">Bonés</a>
+            <a href="#promocoes">
+                Promoções
+            </a>
 
-            <a href="#chaveiros">Chaveiros</a>
-
-            <a href="#pingentes">Pingentes</a>
-
-            <a href="#adesivos">Adesivos</a>
-
-            <a href="#pulseiras">Pulseiras</a>
-
-            <a href="#promocoes">Promoções</a>
+            <a href="#destaques">
+                Destaques
+            </a>
 
         </nav>
 
@@ -65,14 +71,16 @@ include("includes/promocoes.php");
     </header>
 
 
-    <!-- CONTEÚDO PRINCIPAL -->
 
     <main>
 
 
+        <!-- ========================================= -->
         <!-- INÍCIO -->
+        <!-- ========================================= -->
 
         <section class="hero" id="inicio">
+
 
             <div class="hero-texto">
 
@@ -92,13 +100,14 @@ include("includes/promocoes.php");
 
                 <p class="descricao">
 
-                    Mochilas e acessórios personalizados para quem
-                    quer transformar seu estilo em algo único.
+                    Mochilas e acessórios personalizados
+                    para quem quer transformar seu estilo
+                    em algo único.
 
                 </p>
 
 
-                <a href="#mochilas" class="botao">
+                <a href="#categorias" class="botao">
 
                     VER PRODUTOS
 
@@ -107,22 +116,29 @@ include("includes/promocoes.php");
             </div>
 
 
+
             <div class="hero-imagem">
 
                 <div class="imagem-destaque">
 
-                    SUA<br>PACK
+                    SUA<br>
+                    PACK
 
                 </div>
 
             </div>
 
+
         </section>
 
 
+
+        <!-- ========================================= -->
         <!-- SOBRE A MARCA -->
+        <!-- ========================================= -->
 
         <section class="sobre">
+
 
             <p class="titulo-pequeno">
 
@@ -141,19 +157,26 @@ include("includes/promocoes.php");
 
             <p>
 
-                A SUA PACK nasceu para jovens que gostam de criatividade,
-                autenticidade e moda urbana. Nossos produtos unem cultura pop,
-                streetwear e personalização para que cada pessoa possa montar
-                sua própria vibe.
+                A SUA PACK nasceu para jovens que gostam
+                de criatividade, autenticidade e moda urbana.
+
+                Nossos produtos unem cultura pop,
+                streetwear e personalização para que
+                cada pessoa possa montar sua própria vibe.
 
             </p>
+
 
         </section>
 
 
-        <!-- CATEGORIAS -->
 
-        <section class="categorias">
+        <!-- ========================================= -->
+        <!-- CATEGORIAS -->
+        <!-- ========================================= -->
+
+        <section class="categorias" id="categorias">
+
 
             <div class="titulo-secao">
 
@@ -168,193 +191,88 @@ include("includes/promocoes.php");
             </div>
 
 
+
             <div class="grade-categorias">
 
 
-                <!-- MOCHILAS -->
+                <?php
 
-                <a href="#" class="categoria-card" id="mochilas">
+                $numero = 1;
 
-                    <span class="numero">
-                        01
-                    </span>
+                while ($categoria = mysqli_fetch_assoc($resultado_categorias)) {
+
+                ?>
 
 
-                    <div>
+                    <a href="#produtos" class="categoria-card">
 
-                        <p>
-                            ESSENTIAL
-                        </p>
 
-                        <h3>
-                            MOCHILAS
-                        </h3>
+                        <span class="numero">
 
-                        <span>
-                            VER PRODUTOS →
+                            <?= str_pad($numero, 2, "0", STR_PAD_LEFT) ?>
+
                         </span>
 
-                    </div>
 
-                </a>
+                        <div>
 
-
-                <!-- BONÉS -->
-
-                <a href="#" class="categoria-card" id="bones">
-
-                    <span class="numero">
-                        02
-                    </span>
+                            <p>
+                                SUA PACK
+                            </p>
 
 
-                    <div>
+                            <h3>
 
-                        <p>
-                            STREETWEAR
-                        </p>
+                                <?= htmlspecialchars($categoria["nome"]) ?>
 
-                        <h3>
-                            BONÉS
-                        </h3>
-
-                        <span>
-                            VER PRODUTOS →
-                        </span>
-
-                    </div>
-
-                </a>
+                            </h3>
 
 
-                <!-- CHAVEIROS -->
+                            <span>
 
-                <a href="#" class="categoria-card" id="chaveiros">
+                                VER PRODUTOS →
 
-                    <span class="numero">
-                        03
-                    </span>
+                            </span>
 
-
-                    <div>
-
-                        <p>
-                            DETAILS
-                        </p>
-
-                        <h3>
-                            CHAVEIROS
-                        </h3>
-
-                        <span>
-                            VER PRODUTOS →
-                        </span>
-
-                    </div>
-
-                </a>
+                        </div>
 
 
-                <!-- PINGENTES -->
-
-                <a href="#" class="categoria-card" id="pingentes">
-
-                    <span class="numero">
-                        04
-                    </span>
+                    </a>
 
 
-                    <div>
+                <?php
 
-                        <p>
-                            CUSTOM
-                        </p>
+                    $numero++;
 
-                        <h3>
-                            PINGENTES
-                        </h3>
+                }
 
-                        <span>
-                            VER PRODUTOS →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-                <!-- ADESIVOS -->
-
-                <a href="#" class="categoria-card" id="adesivos">
-
-                    <span class="numero">
-                        05
-                    </span>
-
-
-                    <div>
-
-                        <p>
-                            YOUR VIBE
-                        </p>
-
-                        <h3>
-                            ADESIVOS
-                        </h3>
-
-                        <span>
-                            VER PRODUTOS →
-                        </span>
-
-                    </div>
-
-                </a>
-
-
-                <!-- PULSEIRAS -->
-
-                <a href="#" class="categoria-card" id="pulseiras">
-
-                    <span class="numero">
-                        06
-                    </span>
-
-
-                    <div>
-
-                        <p>
-                            ACCESSORIES
-                        </p>
-
-                        <h3>
-                            PULSEIRAS
-                        </h3>
-
-                        <span>
-                            VER PRODUTOS →
-                        </span>
-
-                    </div>
-
-                </a>
+                ?>
 
 
             </div>
 
+
         </section>
 
 
+
+        <!-- ========================================= -->
         <!-- PROMOÇÕES -->
+        <!-- ========================================= -->
 
         <section class="promocoes" id="promocoes">
 
 
             <div class="promo-banner">
 
+
                 <div class="promo-texto">
 
+
                     <p class="promo-tag">
+
                         DROP SALE
+
                     </p>
 
 
@@ -369,8 +287,8 @@ include("includes/promocoes.php");
 
                     <p class="promo-descricao">
 
-                        Produtos selecionados com descontos especiais
-                        por tempo limitado.
+                        Produtos selecionados com descontos
+                        especiais por tempo limitado.
 
                     </p>
 
@@ -381,10 +299,13 @@ include("includes/promocoes.php");
 
                     </a>
 
+
                 </div>
 
 
+
                 <div class="promo-destaque">
+
 
                     <span>
                         ATÉ
@@ -400,9 +321,12 @@ include("includes/promocoes.php");
                         OFF
                     </span>
 
+
                 </div>
 
+
             </div>
+
 
 
             <!-- PRODUTOS EM PROMOÇÃO -->
@@ -416,6 +340,7 @@ include("includes/promocoes.php");
                     <?php
 
                     $desconto = 0;
+
 
                     if (
                         $produto["preco"] > 0 &&
@@ -441,25 +366,36 @@ include("includes/promocoes.php");
                     <article class="oferta-card">
 
 
+                        <!-- IMAGEM -->
+
                         <div class="oferta-imagem">
+
 
                             <?php if (!empty($produto["imagem"])) { ?>
 
+
                                 <img
-                                    src="img/<?= $produto["imagem"] ?>"
-                                    alt="<?= $produto["nome"] ?>"
+                                    src="img/<?= htmlspecialchars($produto["imagem"]) ?>"
+                                    alt="<?= htmlspecialchars($produto["nome"]) ?>"
                                 >
 
+
                             <?php } else { ?>
+
 
                                 <span>
                                     FOTO
                                 </span>
 
+
                             <?php } ?>
+
 
                         </div>
 
+
+
+                        <!-- DESCONTO -->
 
                         <span class="desconto">
 
@@ -468,36 +404,63 @@ include("includes/promocoes.php");
                         </span>
 
 
+
+                        <!-- CATEGORIA -->
+
                         <p class="produto-categoria">
 
-                            <?= $produto["categoria"] ?>
+                            <?= htmlspecialchars($produto["categoria"]) ?>
 
                         </p>
 
 
+
+                        <!-- NOME -->
+
                         <h3>
 
-                            <?= $produto["nome"] ?>
+                            <?= htmlspecialchars($produto["nome"]) ?>
 
                         </h3>
 
 
+
+                        <!-- PREÇOS -->
+
                         <div class="precos">
+
 
                             <span class="preco-antigo">
 
-                                R$ <?= $produto["preco"] ?>
+                                R$
+
+                                <?= number_format(
+                                    $produto["preco"],
+                                    2,
+                                    ",",
+                                    "."
+                                ) ?>
 
                             </span>
+
 
 
                             <span class="preco-promocional">
 
-                                R$ <?= $produto["preco_promocional"] ?>
+                                R$
+
+                                <?= number_format(
+                                    $produto["preco_promocional"],
+                                    2,
+                                    ",",
+                                    "."
+                                ) ?>
 
                             </span>
 
+
                         </div>
+
 
 
                         <a href="#">
@@ -515,12 +478,16 @@ include("includes/promocoes.php");
 
             </div>
 
+
         </section>
 
 
-        <!-- PRODUTOS EM DESTAQUE -->
 
-        <section class="destaques">
+        <!-- ========================================= -->
+        <!-- PRODUTOS EM DESTAQUE -->
+        <!-- ========================================= -->
+
+        <section class="destaques" id="destaques">
 
 
             <div class="titulo-secao">
@@ -536,7 +503,8 @@ include("includes/promocoes.php");
             </div>
 
 
-            <div class="grade-produtos">
+
+            <div class="grade-produtos" id="produtos">
 
 
                 <?php while ($produto = mysqli_fetch_assoc($resultado_produtos)) { ?>
@@ -554,8 +522,8 @@ include("includes/promocoes.php");
 
 
                                 <img
-                                    src="img/<?= $produto["imagem"] ?>"
-                                    alt="<?= $produto["nome"] ?>"
+                                    src="img/<?= htmlspecialchars($produto["imagem"]) ?>"
+                                    alt="<?= htmlspecialchars($produto["nome"]) ?>"
                                 >
 
 
@@ -573,50 +541,79 @@ include("includes/promocoes.php");
                         </div>
 
 
+
                         <!-- CATEGORIA -->
 
                         <p class="produto-categoria">
 
-                            <?= $produto["categoria"] ?>
+                            <?= htmlspecialchars($produto["categoria"]) ?>
 
                         </p>
+
 
 
                         <!-- NOME -->
 
                         <h3>
 
-                            <?= $produto["nome"] ?>
+                            <?= htmlspecialchars($produto["nome"]) ?>
 
                         </h3>
 
 
+
                         <!-- PREÇO -->
 
-                        <?php if (
+                        <?php
+
+                        if (
                             $produto["em_promocao"] == 1 &&
                             !empty($produto["preco_promocional"])
-                        ) { ?>
+                        ) {
+
+                        ?>
 
 
                             <p class="preco">
 
-                                R$ <?= $produto["preco_promocional"] ?>
+                                R$
+
+                                <?= number_format(
+                                    $produto["preco_promocional"],
+                                    2,
+                                    ",",
+                                    "."
+                                ) ?>
 
                             </p>
 
 
-                        <?php } else { ?>
+                        <?php
+
+                        } else {
+
+                        ?>
 
 
                             <p class="preco">
 
-                                R$ <?= $produto["preco"] ?>
+                                R$
+
+                                <?= number_format(
+                                    $produto["preco"],
+                                    2,
+                                    ",",
+                                    "."
+                                ) ?>
 
                             </p>
 
 
-                        <?php } ?>
+                        <?php
+
+                        }
+
+                        ?>
 
 
                         <a href="#">
@@ -634,13 +631,59 @@ include("includes/promocoes.php");
 
             </div>
 
+
+        </section>
+
+
+
+        <!-- ========================================= -->
+        <!-- CHAMADA FINAL -->
+        <!-- ========================================= -->
+
+        <section class="sobre">
+
+
+            <p class="titulo-pequeno">
+
+                MONTE SUA VIBE
+
+            </p>
+
+
+            <h2>
+
+                SEU ESTILO.
+                <span>SUAS REGRAS.</span>
+
+            </h2>
+
+
+            <p>
+
+                Escolha sua mochila, personalize com seus
+                acessórios favoritos e crie uma combinação
+                que tenha a sua cara.
+
+            </p>
+
+
+            <a href="#categorias" class="botao">
+
+                COMEÇAR AGORA
+
+            </a>
+
+
         </section>
 
 
     </main>
 
 
+
+    <!-- ========================================= -->
     <!-- RODAPÉ -->
+    <!-- ========================================= -->
 
     <footer class="footer">
 
@@ -657,6 +700,7 @@ include("includes/promocoes.php");
             Seu estilo. Sua identidade. Sua Pack.
 
         </p>
+
 
 
         <div class="redes">
@@ -678,6 +722,7 @@ include("includes/promocoes.php");
 
 
         </div>
+
 
 
         <p class="copyright">

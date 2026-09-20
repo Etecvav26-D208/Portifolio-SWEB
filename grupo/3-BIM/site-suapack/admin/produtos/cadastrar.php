@@ -2,8 +2,6 @@
 
 include("../../conexao.php");
 
-$categorias = mysqli_query($conexao, "SELECT * FROM categorias ORDER BY nome");
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nome = $_POST["nome"];
@@ -12,134 +10,257 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $preco_promocional = $_POST["preco_promocional"];
     $imagem = $_POST["imagem"];
     $estoque = $_POST["estoque"];
-    $em_promocao = isset($_POST["em_promocao"]) ? 1 : 0;
     $id_categoria = $_POST["id_categoria"];
 
-    $sql = "INSERT INTO produtos 
-            (nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-            VALUES 
-            ('$nome', '$descricao', '$preco', '$preco_promocional', '$imagem', '$estoque', '$em_promocao', '$id_categoria')";
+    if (isset($_POST["em_promocao"])) {
+        $em_promocao = 1;
+    } else {
+        $em_promocao = 0;
+    }
 
-    mysqli_query($conexao, $sql);
+    $sql = "
+        INSERT INTO produtos
+        (
+            nome,
+            descricao,
+            preco,
+            preco_promocional,
+            imagem,
+            estoque,
+            em_promocao,
+            id_categoria
+        )
+        VALUES
+        (
+            '$nome',
+            '$descricao',
+            '$preco',
+            '$preco_promocional',
+            '$imagem',
+            '$estoque',
+            '$em_promocao',
+            '$id_categoria'
+        )
+    ";
 
-    header("Location: listar.php");
-    exit;
+    if (mysqli_query($conexao, $sql)) {
+
+        header("Location: listar.php");
+        exit;
+
+    } else {
+
+        echo "Erro ao cadastrar produto.";
+
+    }
+
 }
+
+$sql_categorias = "
+    SELECT *
+    FROM categorias
+    ORDER BY nome ASC
+";
+
+$resultado_categorias = mysqli_query(
+    $conexao,
+    $sql_categorias
+);
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <title>Cadastrar Produto - SUA PACK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar Produto | SUA PACK</title>
+
+    <link rel="stylesheet" href="../admin.css">
+
 </head>
 
 <body>
 
-    <h1>Cadastrar Produto</h1>
+
+<header class="admin-header">
+
+    <div class="logo">
+        SUA <span>PACK</span>
+    </div>
+
+    <div class="admin-identificacao">
+
+        <strong>
+            Cadastrar Produto
+        </strong>
+
+        <span class="status">
+            Área Administrativa
+        </span>
+
+    </div>
+
+    <a href="../index.php" class="voltar-site">
+        ← Painel
+    </a>
+
+</header>
+
+
+
+<main class="admin-container">
+
+
+    <div class="boas-vindas">
+
+        <h1>
+            Novo produto
+        </h1>
+
+        <p>
+            Cadastre um novo produto da SUA PACK.
+        </p>
+
+    </div>
+
+
 
     <form method="POST">
 
-        <label>Nome do produto:</label>
-        <br>
 
-        <input type="text" name="nome" required>
+        <label>
+            Nome do produto
+        </label>
 
-        <br><br>
-
-
-        <label>Descrição:</label>
-        <br>
-
-        <textarea name="descricao"></textarea>
-
-        <br><br>
-
-
-        <label>Preço:</label>
-        <br>
-
-        <input type="number" name="preco" step="0.01" required>
-
-        <br><br>
-
-
-        <label>Preço promocional:</label>
-        <br>
-
-        <input type="number" name="preco_promocional" step="0.01">
-
-        <br><br>
-
-
-        <label>Nome da imagem:</label>
-        <br>
-
-        <input 
-            type="text" 
-            name="imagem" 
-            placeholder="exemplo.jpg"
+        <input
+            type="text"
+            name="nome"
+            required
         >
 
-        <br><br>
 
 
-        <label>Estoque:</label>
-        <br>
+        <label>
+            Descrição
+        </label>
 
-        <input type="number" name="estoque" min="0" required>
+        <textarea
+            name="descricao"
+            rows="5"
+        ></textarea>
 
-        <br><br>
 
 
-        <label>Categoria:</label>
-        <br>
+        <label>
+            Preço
+        </label>
 
-        <select name="id_categoria" required>
+        <input
+            type="number"
+            name="preco"
+            step="0.01"
+            required
+        >
 
-            <option value="">Selecione uma categoria</option>
 
-            <?php while ($categoria = mysqli_fetch_assoc($categorias)) { ?>
 
-                <option value="<?= $categoria["id_categoria"] ?>">
-                    <?= $categoria["nome"] ?>
+        <label>
+            Preço promocional
+        </label>
+
+        <input
+            type="number"
+            name="preco_promocional"
+            step="0.01"
+        >
+
+
+
+        <label>
+            Categoria
+        </label>
+
+        <select
+            name="id_categoria"
+            required
+        >
+
+            <option value="">
+                Selecione uma categoria
+            </option>
+
+
+            <?php while ($categoria = mysqli_fetch_assoc($resultado_categorias)) { ?>
+
+                <option
+                    value="<?= $categoria["id_categoria"] ?>"
+                >
+
+                    <?= htmlspecialchars($categoria["nome"]) ?>
+
                 </option>
 
             <?php } ?>
 
         </select>
 
-        <br><br>
+
+
+        <label>
+            Imagem
+        </label>
+
+        <input
+            type="text"
+            name="imagem"
+            placeholder="exemplo.jpg"
+        >
+
+
+
+        <label>
+            Estoque
+        </label>
+
+        <input
+            type="number"
+            name="estoque"
+            min="0"
+            value="0"
+            required
+        >
+
 
 
         <label>
 
-            <input 
-                type="checkbox" 
+            <input
+                type="checkbox"
                 name="em_promocao"
+                value="1"
             >
 
             Produto em promoção
 
         </label>
 
-        <br><br>
 
 
         <button type="submit">
-            Cadastrar Produto
+            CADASTRAR PRODUTO
         </button>
+
 
     </form>
 
-    <br>
 
-    <a href="listar.php">
-        Voltar para produtos
-    </a>
+</main>
+
 
 </body>
 

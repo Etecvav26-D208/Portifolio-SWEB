@@ -2,17 +2,19 @@
 
 include("../conexao.php");
 
-
-/* Busca os produtos que estão em promoção */
-
-$sql = "SELECT produtos.*, categorias.nome AS categoria
-        FROM produtos
-        LEFT JOIN categorias
+$sql_promocoes = "
+    SELECT 
+        produtos.*,
+        categorias.nome AS categoria
+    FROM produtos
+    LEFT JOIN categorias
         ON produtos.id_categoria = categorias.id_categoria
-        WHERE produtos.em_promocao = 1
-        ORDER BY produtos.id_produto DESC";
+    WHERE produtos.em_promocao = 1
+    AND produtos.preco_promocional IS NOT NULL
+    AND produtos.preco_promocional > 0
+    ORDER BY produtos.id_produto DESC
+";
 
-
-$resultado_promocoes = mysqli_query($conexao, $sql);
+$resultado_promocoes = mysqli_query($conexao, $sql_promocoes);
 
 ?>

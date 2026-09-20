@@ -1,0 +1,118 @@
+-- Garante que a categoria Mochilas exista
+INSERT INTO categorias (nome)
+SELECT 'Mochilas'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM categorias
+    WHERE nome = 'Mochilas'
+);
+
+-- Cadastra as 7 mochilas/bolsas
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+
+SELECT
+    'Bolsa Gótica',
+    'Bolsa compacta com estilo gótico e urbano, perfeita para completar looks mais marcantes. Design versátil para levar seus itens essenciais no dia a dia.',
+    89.90, NULL, 'bolsa_gotica.png', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Mochila Gótica',
+    'Mochila com visual gótico e urbano, ideal para quem gosta de acessórios diferentes e cheios de personalidade. Espaçosa para acompanhar a rotina de estudos e passeios.',
+    109.90, NULL, 'mochila_gotica.png', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Mochila Personalizável',
+    'Mochila criada para você deixar do seu jeito. Combine acessórios, pins e detalhes personalizados para criar uma peça única com a sua identidade.',
+    99.90, NULL, 'mochila_personalizavel.png', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Mochila Dreamy',
+    'Mochila com estilo moderno e visual delicado, trazendo uma vibe criativa para o dia a dia. Uma opção prática para estudos, passeios e rolês.',
+    114.90, NULL, 'mochila_dreamy.jpeg', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Mochila Custom Style',
+    'Modelo inspirado no estilo streetwear, com visual moderno e versátil. Perfeita para quem quer praticidade sem abrir mão da personalidade.',
+    104.90, NULL, 'mochila_custom_style.jpeg', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Mochila Azul Aqua',
+    'Mochila em uma estética azul aqua, com visual moderno e descontraído. Ideal para compor looks coloridos e levar seus itens para a escola ou passeios.',
+    94.90, NULL, 'mochila_azul_aqua.png', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Bolsa Urban',
+    'Bolsa compacta com inspiração urbana, feita para acompanhar diferentes momentos do dia. Prática, estilosa e fácil de combinar.',
+    84.90, NULL, 'bolsa_urban.jpeg', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Mochilas';
+
+
+-- ==================================================
+-- GARANTE QUE A CATEGORIA ADESIVOS EXISTA
+-- ==================================================
+
+INSERT INTO categorias (nome)
+SELECT 'Adesivos'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM categorias
+    WHERE nome = 'Adesivos'
+);
+
+
+-- ==================================================
+-- CADASTRA OS 4 PACKS DE ADESIVOS
+-- R$ 18,90 | 5 UNIDADES | SEM PROMOÇÃO
+-- ==================================================
+
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+
+SELECT
+    'Pack Sua Pack',
+    'Pack de adesivos exclusivos da SUA PACK com estética urbana, moderna e cheia de atitude. Ideal para personalizar cadernos, notebooks, garrafas, capas e outros objetos.',
+    18.90, NULL, 'adesivo_pack_1.png', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Adesivos'
+
+UNION ALL
+
+SELECT
+    'Pack Girl Power',
+    'Pack de adesivos exclusivos com frases e elementos em rosa, preto e branco, perfeito para personalizar seus objetos e expressar sua personalidade.',
+    18.90, NULL, 'adesivo_pack_2.png', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Adesivos'
+
+UNION ALL
+
+SELECT
+    'Pack Street Blue',
+    'Pack de adesivos com estética streetwear em azul, preto e branco, com elementos urbanos e visual marcante.',
+    18.90, NULL, 'adesivo_pack_3.png', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Adesivos'
+
+UNION ALL
+
+SELECT
+    'Pack Skull Style',
+    'Pack de adesivos com estética dark e urbana, trazendo elementos de caveira e identidade street para quem gosta de um visual mais ousado.',
+    18.90, NULL, 'adesivo_pack_4.png', 5, 0, id_categoria
+FROM categorias WHERE nome = 'Adesivos';

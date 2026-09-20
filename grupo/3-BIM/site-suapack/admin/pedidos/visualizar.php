@@ -22,56 +22,174 @@ $pedido = mysqli_fetch_assoc($resultado);
 
     <meta charset="UTF-8">
 
-    <title>Visualizar Pedido - SUA PACK</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Visualizar Pedido - SUA PACK
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../admin.css"
+    >
 
 </head>
 
+
 <body>
 
-    <h1>Detalhes do Pedido</h1>
+
+<header class="admin-header">
 
 
-    <p>
-        <strong>ID do pedido:</strong>
-        <?= $pedido["id_pedido"] ?>
-    </p>
+    <div class="logo">
+
+        SUA <span>PACK</span>
+
+    </div>
 
 
-    <p>
-        <strong>Nome do cliente:</strong>
-        <?= $pedido["nome_cliente"] ?>
-    </p>
+    <div class="admin-identificacao">
+
+        <strong>
+            Visualizar Pedido
+        </strong>
+
+        <span class="status">
+            Área Administrativa
+        </span>
+
+    </div>
 
 
-    <p>
-        <strong>Endereço:</strong>
-        <?= $pedido["endereco"] ?>
-    </p>
+    <a
+        href="../index.php"
+        class="voltar-site"
+    >
+
+        ← Painel
+
+    </a>
 
 
-    <p>
-        <strong>Forma de pagamento:</strong>
-        <?= $pedido["forma_pagamento"] ?>
-    </p>
+</header>
 
 
-    <p>
-        <strong>Valor total:</strong>
-        R$ <?= $pedido["valor_total"] ?>
-    </p>
+
+<main class="admin-container">
 
 
-    <p>
-        <strong>Status do pedido:</strong>
-        <?= $pedido["status_pedido"] ?>
-    </p>
+    <div class="boas-vindas">
+
+        <h1>
+            Detalhes do pedido
+        </h1>
+
+        <p>
+            Confira todas as informações deste pedido.
+        </p>
+
+    </div>
+
+
+
+    <div class="admin-info">
+
+
+        <p class="info-texto">
+
+            <strong>
+                ID do pedido:
+            </strong>
+
+            <?= $pedido["id_pedido"] ?>
+
+        </p>
+
+
+
+        <p class="info-texto">
+
+            <strong>
+                Nome do cliente:
+            </strong>
+
+            <?= htmlspecialchars($pedido["nome_cliente"]) ?>
+
+        </p>
+
+
+
+        <p class="info-texto">
+
+            <strong>
+                Endereço:
+            </strong>
+
+            <?= htmlspecialchars($pedido["endereco"]) ?>
+
+        </p>
+
+
+
+        <p class="info-texto">
+
+            <strong>
+                Forma de pagamento:
+            </strong>
+
+            <?= htmlspecialchars($pedido["forma_pagamento"]) ?>
+
+        </p>
+
+
+
+        <p class="info-texto">
+
+            <strong>
+                Valor total:
+            </strong>
+
+            R$
+
+            <?= number_format(
+                $pedido["valor_total"],
+                2,
+                ",",
+                "."
+            ) ?>
+
+        </p>
+
+
+
+        <p class="info-texto">
+
+            <strong>
+                Status do pedido:
+            </strong>
+
+            <?= htmlspecialchars($pedido["status_pedido"]) ?>
+
+        </p>
+
+
+    </div>
+
 
 
     <br>
 
 
-    <a href="editar.php?id=<?= $pedido["id_pedido"] ?>">
+    <a
+        href="editar.php?id=<?= $pedido["id_pedido"] ?>"
+    >
+
         Editar pedido
+
     </a>
 
 
@@ -79,8 +197,26 @@ $pedido = mysqli_fetch_assoc($resultado);
 
 
     <a href="listar.php">
-        Voltar para pedidos
+
+        ← Voltar para pedidos
+
     </a>
+
+
+</main>
+
+
+
+<footer class="admin-footer">
+
+    <p>
+
+        SUA PACK — Área Administrativa
+
+    </p>
+
+</footer>
+
 
 </body>
 

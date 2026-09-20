@@ -9,56 +9,182 @@ $resultado = mysqli_query($conexao, $sql);
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
-    <title>Lista de Categorias - SUA PACK</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Categorias | SUA PACK</title>
+
+    <link rel="stylesheet" href="../admin.css">
+
 </head>
 
 <body>
 
-    <h1>Categorias</h1>
+<header class="admin-header">
 
-    <a href="cadastrar.php">+ Cadastrar Categoria</a>
+    <div class="logo">
+        SUA <span>PACK</span>
+    </div>
 
-    <br><br>
+    <div class="admin-identificacao">
 
-    <table border="1">
+        <strong>
+            Categorias
+        </strong>
 
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Ações</th>
-        </tr>
+        <span class="status">
+            Área Administrativa
+        </span>
 
-        <?php while ($categoria = mysqli_fetch_assoc($resultado)) { ?>
+    </div>
 
-            <tr>
+    <a href="../index.php" class="voltar-site">
+        ← Painel
+    </a>
 
-                <td>
-                    <?= $categoria["id_categoria"] ?>
-                </td>
+</header>
 
-                <td>
-                    <?= $categoria["nome"] ?>
-                </td>
 
-                <td>
-                    <a href="editar.php?id=<?= $categoria["id_categoria"] ?>">
-                        Editar
-                    </a>
+<main class="admin-container">
 
-                    |
+    <div class="boas-vindas">
 
-                    <a href="excluir.php?id=<?= $categoria["id_categoria"] ?>">
-                        Excluir
-                    </a>
-                </td>
+        <h1>
+            Categorias cadastradas
+        </h1>
 
-            </tr>
+        <p>
+            Gerencie as categorias dos produtos.
+        </p>
 
-        <?php } ?>
+    </div>
+
+
+    <div class="admin-menu">
+
+        <a href="cadastrar.php" class="admin-card">
+
+            <div class="card-topo">
+
+                <span class="icone">
+                    ＋
+                </span>
+
+                <span class="card-label">
+                    NOVO
+                </span>
+
+            </div>
+
+            <div class="card-conteudo">
+
+                <h2>
+                    Cadastrar categoria
+                </h2>
+
+                <p>
+                    Adicione uma nova categoria.
+                </p>
+
+            </div>
+
+            <div class="card-rodape">
+                CADASTRAR →
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <div class="tabela-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Nome da categoria
+                    </th>
+
+                    <th>
+                        Ações
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <?php while ($categoria = mysqli_fetch_assoc($resultado)) { ?>
+
+                    <tr>
+
+                        <td>
+                            <?= $categoria["id_categoria"] ?>
+                        </td>
+
+                        <td>
+
+                            <strong>
+                                <?= htmlspecialchars($categoria["nome"]) ?>
+                            </strong>
+
+                        </td>
+
+                        <td>
+
+                            <a href="editar.php?id=<?= $categoria["id_categoria"] ?>">
+                                Editar
+                            </a>
+
+                            |
+
+                            <a
+                                href="excluir.php?id=<?= $categoria["id_categoria"] ?>"
+                                onclick="return confirm('Tem certeza que deseja excluir esta categoria?');"
+                            >
+                                Excluir
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                <?php } ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</main>
+
+
+<footer class="admin-footer">
+
+    <p>
+        SUA PACK — Área Administrativa
+    </p>
+
+</footer>
+
+</body>
+
+</html>
 
     </table>
 

@@ -14,7 +14,7 @@ $resultado = mysqli_query($conexao, $sql);
 $pedido = mysqli_fetch_assoc($resultado);
 
 
-/* Quando o formulário for enviado */
+/* Atualiza o pedido */
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $status_pedido = $_POST["status_pedido"];
 
 
-    $sql = "UPDATE pedidos SET
+    $sql = "
+        UPDATE pedidos SET
 
             nome_cliente = '$nome_cliente',
             endereco = '$endereco',
@@ -33,33 +34,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             valor_total = '$valor_total',
             status_pedido = '$status_pedido'
 
-            WHERE id_pedido = $id";
+        WHERE id_pedido = $id
+    ";
 
 
     mysqli_query($conexao, $sql);
 
 
     header("Location: listar.php");
+
     exit;
 
 }
 
 ?>
 
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <title>Editar Pedido - SUA PACK</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Editar Pedido | SUA PACK
+    </title>
+
+    <link rel="stylesheet" href="../admin.css">
 
 </head>
 
+
 <body>
 
-    <h1>Editar Pedido</h1>
+
+<header class="admin-header">
+
+    <div class="logo">
+        SUA <span>PACK</span>
+    </div>
+
+    <div class="admin-identificacao">
+
+        <strong>
+            Editar Pedido
+        </strong>
+
+        <span class="status">
+            Área Administrativa
+        </span>
+
+    </div>
+
+    <a href="../index.php" class="voltar-site">
+        ← Painel
+    </a>
+
+</header>
+
+
+<main class="admin-container">
+
+
+    <div class="boas-vindas">
+
+        <h1>
+            Editar pedido
+        </h1>
+
+        <p>
+            Altere as informações do pedido.
+        </p>
+
+    </div>
 
 
     <form method="POST">
@@ -69,67 +122,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Nome do cliente:
         </label>
 
-        <br>
-
         <input
             type="text"
             name="nome_cliente"
-            value="<?= $pedido["nome_cliente"] ?>"
+            value="<?= htmlspecialchars($pedido["nome_cliente"]) ?>"
             required
         >
-
-        <br><br>
 
 
         <label>
             Endereço:
         </label>
 
-        <br>
-
         <input
             type="text"
             name="endereco"
-            value="<?= $pedido["endereco"] ?>"
+            value="<?= htmlspecialchars($pedido["endereco"]) ?>"
             required
         >
-
-        <br><br>
 
 
         <label>
             Forma de pagamento:
         </label>
 
-        <br>
+        <select
+            name="forma_pagamento"
+            required
+        >
 
-        <select name="forma_pagamento" required>
-
-            <option value="Pix"
-                <?= $pedido["forma_pagamento"] == "Pix" ? "selected" : "" ?>>
+            <option
+                value="Pix"
+                <?= $pedido["forma_pagamento"] == "Pix" ? "selected" : "" ?>
+            >
                 Pix
             </option>
 
-            <option value="Cartão"
-                <?= $pedido["forma_pagamento"] == "Cartão" ? "selected" : "" ?>>
+            <option
+                value="Cartão"
+                <?= $pedido["forma_pagamento"] == "Cartão" ? "selected" : "" ?>
+            >
                 Cartão
             </option>
 
-            <option value="Boleto"
-                <?= $pedido["forma_pagamento"] == "Boleto" ? "selected" : "" ?>>
+            <option
+                value="Boleto"
+                <?= $pedido["forma_pagamento"] == "Boleto" ? "selected" : "" ?>
+            >
                 Boleto
             </option>
 
         </select>
 
-        <br><br>
-
 
         <label>
             Valor total:
         </label>
-
-        <br>
 
         <input
             type="number"
@@ -140,49 +188,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             required
         >
 
-        <br><br>
-
 
         <label>
             Status do pedido:
         </label>
 
-        <br>
+        <select
+            name="status_pedido"
+            required
+        >
 
-        <select name="status_pedido" required>
-
-            <option value="Pendente"
-                <?= $pedido["status_pedido"] == "Pendente" ? "selected" : "" ?>>
+            <option
+                value="Pendente"
+                <?= $pedido["status_pedido"] == "Pendente" ? "selected" : "" ?>
+            >
                 Pendente
             </option>
 
-            <option value="Em preparação"
-                <?= $pedido["status_pedido"] == "Em preparação" ? "selected" : "" ?>>
+            <option
+                value="Em preparação"
+                <?= $pedido["status_pedido"] == "Em preparação" ? "selected" : "" ?>
+            >
                 Em preparação
             </option>
 
-            <option value="Enviado"
-                <?= $pedido["status_pedido"] == "Enviado" ? "selected" : "" ?>>
+            <option
+                value="Enviado"
+                <?= $pedido["status_pedido"] == "Enviado" ? "selected" : "" ?>
+            >
                 Enviado
             </option>
 
-            <option value="Entregue"
-                <?= $pedido["status_pedido"] == "Entregue" ? "selected" : "" ?>>
+            <option
+                value="Entregue"
+                <?= $pedido["status_pedido"] == "Entregue" ? "selected" : "" ?>
+            >
                 Entregue
-            </option>
-
-            <option value="Cancelado"
-                <?= $pedido["status_pedido"] == "Cancelado" ? "selected" : "" ?>>
-                Cancelado
             </option>
 
         </select>
 
-        <br><br>
-
 
         <button type="submit">
-            Salvar Alterações
+            SALVAR ALTERAÇÕES
         </button>
 
 
@@ -193,8 +241,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <a href="listar.php">
-        Voltar para pedidos
+        ← Voltar para pedidos
     </a>
+
+
+</main>
+
+
+<footer class="admin-footer">
+
+    <p>
+        SUA PACK — Área Administrativa
+    </p>
+
+</footer>
+
 
 </body>
 

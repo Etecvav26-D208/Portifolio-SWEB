@@ -10,38 +10,115 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $valor_total = $_POST["valor_total"];
     $status_pedido = $_POST["status_pedido"];
 
-    $sql = "INSERT INTO pedidos
-            (nome_cliente, endereco, forma_pagamento, valor_total, status_pedido)
-            VALUES
-            ('$nome_cliente', '$endereco', '$forma_pagamento', '$valor_total', '$status_pedido')";
 
-    mysqli_query($conexao, $sql);
+    $sql = "
+        INSERT INTO pedidos
+        (
+            nome_cliente,
+            endereco,
+            forma_pagamento,
+            valor_total,
+            status_pedido
+        )
 
-    header("Location: listar.php");
-    exit;
+        VALUES
+        (
+            '$nome_cliente',
+            '$endereco',
+            '$forma_pagamento',
+            '$valor_total',
+            '$status_pedido'
+        )
+    ";
+
+
+    if (mysqli_query($conexao, $sql)) {
+
+        header("Location: listar.php");
+        exit;
+
+    } else {
+
+        echo "Erro ao cadastrar pedido.";
+
+    }
+
 }
 
 ?>
 
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <title>Cadastrar Pedido - SUA PACK</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Cadastrar Pedido | SUA PACK
+    </title>
+
+    <link rel="stylesheet" href="../admin.css">
 
 </head>
 
+
 <body>
 
-    <h1>Cadastrar Pedido</h1>
+
+<header class="admin-header">
+
+    <div class="logo">
+        SUA <span>PACK</span>
+    </div>
+
+    <div class="admin-identificacao">
+
+        <strong>
+            Cadastrar Pedido
+        </strong>
+
+        <span class="status">
+            Área Administrativa
+        </span>
+
+    </div>
+
+    <a href="../index.php" class="voltar-site">
+        ← Painel
+    </a>
+
+</header>
+
+
+<main class="admin-container">
+
+
+    <div class="boas-vindas">
+
+        <h1>
+            Novo pedido
+        </h1>
+
+        <p>
+            Cadastre um novo pedido da SUA PACK.
+        </p>
+
+    </div>
+
 
     <form method="POST">
 
-        <label>Nome do cliente:</label>
-        <br>
+
+        <label>
+            Nome do cliente:
+        </label>
 
         <input
             type="text"
@@ -49,11 +126,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             required
         >
 
-        <br><br>
 
-
-        <label>Endereço:</label>
-        <br>
+        <label>
+            Endereço:
+        </label>
 
         <input
             type="text"
@@ -61,13 +137,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             required
         >
 
-        <br><br>
 
+        <label>
+            Forma de pagamento:
+        </label>
 
-        <label>Forma de pagamento:</label>
-        <br>
-
-        <select name="forma_pagamento" required>
+        <select
+            name="forma_pagamento"
+            required
+        >
 
             <option value="">
                 Selecione
@@ -87,11 +165,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </select>
 
-        <br><br>
 
-
-        <label>Valor total:</label>
-        <br>
+        <label>
+            Valor total:
+        </label>
 
         <input
             type="number"
@@ -101,13 +178,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             required
         >
 
-        <br><br>
 
+        <label>
+            Status do pedido:
+        </label>
 
-        <label>Status do pedido:</label>
-        <br>
-
-        <select name="status_pedido" required>
+        <select
+            name="status_pedido"
+            required
+        >
 
             <option value="Pendente">
                 Pendente
@@ -125,26 +204,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Entregue
             </option>
 
-            <option value="Cancelado">
-                Cancelado
-            </option>
-
         </select>
-
-        <br><br>
 
 
         <button type="submit">
-            Cadastrar Pedido
+            CADASTRAR PEDIDO
         </button>
+
 
     </form>
 
+
     <br>
 
+
     <a href="listar.php">
-        Voltar para pedidos
+        ← Voltar para pedidos
     </a>
+
+
+</main>
+
+
+<footer class="admin-footer">
+
+    <p>
+        SUA PACK — Área Administrativa
+    </p>
+
+</footer>
+
 
 </body>
 

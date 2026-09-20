@@ -4,7 +4,9 @@ include("../../conexao.php");
 
 $id = $_GET["id"];
 
+
 /* Busca o produto que será editado */
+
 $sql = "SELECT * FROM produtos WHERE id_produto = $id";
 
 $resultado = mysqli_query($conexao, $sql);
@@ -13,6 +15,7 @@ $produto = mysqli_fetch_assoc($resultado);
 
 
 /* Busca as categorias para o menu */
+
 $categorias = mysqli_query(
     $conexao,
     "SELECT * FROM categorias ORDER BY nome"
@@ -20,6 +23,7 @@ $categorias = mysqli_query(
 
 
 /* Quando o formulário for enviado */
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nome = $_POST["nome"];
@@ -30,87 +34,174 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $estoque = $_POST["estoque"];
     $id_categoria = $_POST["id_categoria"];
 
+
     if (isset($_POST["em_promocao"])) {
+
         $em_promocao = 1;
+
     } else {
+
         $em_promocao = 0;
+
     }
 
 
+    /* Atualiza o produto */
+
     $sql = "UPDATE produtos SET
 
-            nome = '$nome',
-            descricao = '$descricao',
-            preco = '$preco',
-            preco_promocional = '$preco_promocional',
-            imagem = '$imagem',
-            estoque = '$estoque',
-            em_promocao = '$em_promocao',
-            id_categoria = '$id_categoria'
+        nome = '$nome',
+        descricao = '$descricao',
+        preco = '$preco',
+        preco_promocional = '$preco_promocional',
+        imagem = '$imagem',
+        estoque = '$estoque',
+        em_promocao = '$em_promocao',
+        id_categoria = '$id_categoria'
 
-            WHERE id_produto = $id";
+        WHERE id_produto = $id";
 
 
     mysqli_query($conexao, $sql);
 
 
+    /* Volta para a lista de produtos */
+
     header("Location: listar.php");
+
     exit;
+
 }
 
 ?>
 
+
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 
 <head>
 
     <meta charset="UTF-8">
 
-    <title>Editar Produto - SUA PACK</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Editar Produto - SUA PACK
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../admin.css"
+    >
 
 </head>
 
+
 <body>
 
-    <h1>Editar Produto</h1>
+
+<header class="admin-header">
+
+
+    <div class="logo">
+
+        SUA <span>PACK</span>
+
+    </div>
+
+
+    <div class="admin-identificacao">
+
+        <strong>
+            Editar Produto
+        </strong>
+
+        <span class="status">
+            Área Administrativa
+        </span>
+
+    </div>
+
+
+    <a
+        href="../index.php"
+        class="voltar-site"
+    >
+        ← Painel
+    </a>
+
+
+</header>
+
+
+
+<main class="admin-container">
+
+
+    <div class="boas-vindas">
+
+        <h1>
+            Editar produto
+        </h1>
+
+        <p>
+            Altere as informações do produto abaixo.
+        </p>
+
+    </div>
+
 
 
     <form method="POST">
 
 
+        <!-- NOME -->
+
         <label>
+
             Nome do produto:
+
         </label>
 
-        <br>
 
         <input
             type="text"
             name="nome"
-            value="<?= $produto["nome"] ?>"
+            value="<?= htmlspecialchars($produto["nome"]) ?>"
             required
         >
 
-        <br><br>
 
+
+        <!-- DESCRIÇÃO -->
 
         <label>
+
             Descrição:
+
         </label>
 
-        <br>
 
-        <textarea name="descricao"><?= $produto["descricao"] ?></textarea>
+        <textarea
+            name="descricao"
+            rows="5"
+        ><?= htmlspecialchars($produto["descricao"]) ?></textarea>
 
-        <br><br>
 
+
+        <!-- PREÇO -->
 
         <label>
+
             Preço:
+
         </label>
 
-        <br>
 
         <input
             type="number"
@@ -120,14 +211,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             required
         >
 
-        <br><br>
 
+
+        <!-- PREÇO PROMOCIONAL -->
 
         <label>
+
             Preço promocional:
+
         </label>
 
-        <br>
 
         <input
             type="number"
@@ -136,29 +229,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             value="<?= $produto["preco_promocional"] ?>"
         >
 
-        <br><br>
 
+
+        <!-- IMAGEM -->
 
         <label>
+
             Nome da imagem:
+
         </label>
 
-        <br>
 
         <input
             type="text"
             name="imagem"
-            value="<?= $produto["imagem"] ?>"
+            value="<?= htmlspecialchars($produto["imagem"]) ?>"
+            placeholder="exemplo.jpg"
         >
 
-        <br><br>
 
+
+        <!-- ESTOQUE -->
 
         <label>
+
             Estoque:
+
         </label>
 
-        <br>
 
         <input
             type="number"
@@ -168,78 +266,128 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             required
         >
 
-        <br><br>
 
+
+        <!-- CATEGORIA -->
 
         <label>
+
             Categoria:
+
         </label>
 
-        <br>
 
-        <select name="id_categoria" required>
+        <select
+            name="id_categoria"
+            required
+        >
+
+
+            <option value="">
+
+                Selecione uma categoria
+
+            </option>
+
 
             <?php while ($categoria = mysqli_fetch_assoc($categorias)) { ?>
+
 
                 <option
                     value="<?= $categoria["id_categoria"] ?>"
 
                     <?php
 
-                    if ($categoria["id_categoria"] == $produto["id_categoria"]) {
+                    if (
+                        $categoria["id_categoria"]
+                        ==
+                        $produto["id_categoria"]
+                    ) {
+
                         echo "selected";
+
                     }
 
                     ?>
                 >
 
-                    <?= $categoria["nome"] ?>
+                    <?= htmlspecialchars($categoria["nome"]) ?>
 
                 </option>
 
+
             <?php } ?>
+
 
         </select>
 
-        <br><br>
 
+
+        <!-- PROMOÇÃO -->
 
         <label>
+
 
             <input
                 type="checkbox"
                 name="em_promocao"
+                value="1"
 
                 <?php
 
                 if ($produto["em_promocao"] == 1) {
+
                     echo "checked";
+
                 }
 
                 ?>
             >
 
+
             Produto em promoção
+
 
         </label>
 
-        <br><br>
 
+
+        <!-- BOTÃO -->
 
         <button type="submit">
-            Salvar Alterações
+
+            SALVAR ALTERAÇÕES
+
         </button>
 
 
     </form>
 
 
+
     <br>
 
 
     <a href="listar.php">
-        Voltar para produtos
+
+        ← Voltar para produtos
+
     </a>
+
+
+</main>
+
+
+
+<footer class="admin-footer">
+
+    <p>
+
+        SUA PACK — Área Administrativa
+
+    </p>
+
+</footer>
 
 
 </body>

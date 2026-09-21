@@ -288,3 +288,47 @@ VALUES
     0,
     (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
 );
+-- ============================================
+-- CADASTRO DAS 2 PULSEIRAS
+-- ============================================
+
+INSERT INTO produtos
+(
+    nome,
+    descricao,
+    preco,
+    preco_promocional,
+    imagem,
+    estoque,
+    em_promocao,
+    id_categoria
+)
+VALUES
+
+-- ============================================
+-- 1. PULSEIRA ESTILIZADA ROSA
+-- ============================================
+(
+    'Pulseira Estilizada Rosa',
+    'Pulseira estilizada rosa com pingentes da SUA PACK, estrela, coração e uma frase. Possui detalhes em rosa e preto e um visual moderno inspirado na cultura pop. Ideal para complementar seu estilo e combinar com outros acessórios.',
+    20.00,
+    NULL,
+    'pulseira_estilizada_rosa.jpg',
+    5,
+    0,
+    (SELECT id_categoria FROM categorias WHERE nome = 'Pulseiras' LIMIT 1)
+),
+
+-- ============================================
+-- 2. PULSEIRA ESTILIZADA PRETA K-POP
+-- ============================================
+(
+    'Pulseira Estilizada Preta K-Pop',
+    'Pulseira estilizada preta com temática K-Pop, detalhes em rosa, pingentes de estrela e elementos inspirados na cultura pop. Ideal para fãs de K-Pop e para complementar looks modernos.',
+    20.00,
+    NULL,
+    'pulseira_estilizada_preta.jpg',
+    5,
+    0,
+    (SELECT id_categoria FROM categorias WHERE nome = 'Pulseiras' LIMIT 1)
+);

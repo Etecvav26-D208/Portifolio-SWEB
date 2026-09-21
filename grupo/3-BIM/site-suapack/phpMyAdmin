@@ -116,3 +116,83 @@ SELECT
     'Pack de adesivos com estética dark e urbana, trazendo elementos de caveira e identidade street para quem gosta de um visual mais ousado.',
     18.90, NULL, 'adesivo_pack_4.png', 5, 0, id_categoria
 FROM categorias WHERE nome = 'Adesivos';
+USE suapack;
+
+-- Garante que a categoria Chaveiros exista
+INSERT INTO categorias (nome)
+SELECT 'Chaveiros'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM categorias
+    WHERE nome = 'Chaveiros'
+);
+
+-- CHAVEIRO 1
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+VALUES (
+    'Chaveiro Colorido Good Vibes',
+    'Chaveiro colorido personalizado com estrelas, flores, coração, smiley e detalhes em amarelo e verde. Ideal para decorar mochilas, bolsas e chaves com uma vibe divertida e única.',
+    29.90,
+    24.90,
+    'chaveiro-colorido-good-vibes.jpeg',
+    15,
+    1,
+    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
+);
+
+-- CHAVEIRO 2
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+VALUES (
+    'Chaveiro Urbano Your Style',
+    'Chaveiro urbano personalizado em tons de cinza, com estrelas, smiley, corrente e detalhes modernos. Perfeito para mochilas, bolsas e acessórios no estilo streetwear.',
+    29.90,
+    NULL,
+    'chaveiro-urbano-your-style.jpeg',
+    12,
+    0,
+    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
+);
+
+-- CHAVEIRO 3
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+VALUES (
+    'Chaveiro Street Azul',
+    'Chaveiro azul e preto no estilo streetwear, com estrela, raio, smiley, corrente e detalhes personalizados. Ideal para mochilas, bolsas e acessórios urbanos.',
+    32.90,
+    27.90,
+    'chaveiro-street-azul.jpeg',
+    10,
+    1,
+    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
+);
+
+-- CHAVEIRO 4
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+VALUES (
+    'Chaveiro Minimalista Verde',
+    'Chaveiro verde e branco com estilo minimalista, cordão e detalhes personalizados. Uma opção simples e moderna para mochilas, bolsas e chaves.',
+    24.90,
+    NULL,
+    'chaveiro-minimalista-verde.jpeg',
+    18,
+    0,
+    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
+);
+
+-- CHAVEIRO 5
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+VALUES (
+    'Chaveiro Cachorro Personalizado',
+    'Chaveiro de cachorro personalizado com desenho de cachorro, plaquinha com nome do pet, patinhas e detalhes delicados. Ideal para quem ama cachorro e quer levar seu pet sempre com você.',
+    34.90,
+    29.90,
+    'chaveiro-cachorro-personalizado.jpeg',
+    8,
+    1,
+    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
+);

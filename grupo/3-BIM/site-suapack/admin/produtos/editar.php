@@ -157,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    <form method="POST">
+    <form method="POST" class="admin-form">
 
 
         <!-- NOME -->

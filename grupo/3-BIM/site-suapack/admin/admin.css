@@ -600,3 +600,377 @@ body {
         text-align: center;
     }
 }
+/* =========================================
+   PRODUTOS - LISTAGEM
+   ========================================= */
+
+   .admin-acoes {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+.admin-btn {
+    display: inline-block;
+
+    padding: 14px 22px;
+
+    background: var(--amarelo);
+    color: var(--preto);
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.admin-btn:hover {
+    background: var(--verde);
+    transform: translateY(-2px);
+}
+
+
+/* ---------- TABELA ---------- */
+
+.admin-tabela-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: var(--preto-card);
+
+    border: 1px solid var(--cinza-claro);
+}
+
+
+.admin-tabela {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    color: var(--branco);
+
+    font-size: 13px;
+}
+
+
+/* CABEÇALHO DA TABELA */
+
+.admin-tabela thead {
+    background: var(--cinza);
+}
+
+
+.admin-tabela th {
+    padding: 18px 16px;
+
+    text-align: left;
+
+    color: var(--amarelo);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    border-bottom: 1px solid var(--cinza-claro);
+}
+
+
+/* LINHAS */
+
+.admin-tabela td {
+    padding: 18px 16px;
+
+    border-bottom: 1px solid var(--cinza-claro);
+
+    vertical-align: middle;
+}
+
+
+.admin-tabela tbody tr {
+    transition: 0.2s;
+}
+
+
+.admin-tabela tbody tr:hover {
+    background: #1a1a1a;
+}
+
+
+.admin-tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ID */
+
+.admin-id {
+    color: var(--cinza-texto);
+
+    font-size: 11px;
+}
+
+
+/* NOME DO PRODUTO */
+
+.admin-produto-nome {
+    color: var(--branco);
+
+    font-weight: 700;
+}
+
+
+/* PREÇO */
+
+.admin-preco {
+    color: var(--verde);
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* ESTOQUE */
+
+.admin-estoque {
+    font-weight: 600;
+}
+
+
+/* STATUS */
+
+.admin-status {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    background: var(--cinza-claro);
+
+    color: var(--cinza-texto);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.admin-status.promocao {
+    background: var(--amarelo);
+
+    color: var(--preto);
+}
+
+
+/* ---------- AÇÕES ---------- */
+
+.admin-acoes-tabela {
+    white-space: nowrap;
+}
+
+
+.btn-editar,
+.btn-excluir {
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    margin-right: 5px;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    transition: 0.3s;
+}
+
+
+.btn-editar {
+    background: var(--cinza-claro);
+
+    color: var(--branco);
+}
+
+
+.btn-editar:hover {
+    background: var(--amarelo);
+
+    color: var(--preto);
+}
+
+
+.btn-excluir {
+    background: #250f0f;
+
+    color: #ff5c5c;
+}
+
+
+.btn-excluir:hover {
+    background: #ff5c5c;
+
+    color: var(--preto);
+}
+
+
+/* ---------- FORMULÁRIOS ---------- */
+
+.admin-form {
+    width: 100%;
+
+    max-width: 900px;
+
+    padding: 35px;
+
+    background: var(--preto-card);
+
+    border: 1px solid var(--cinza-claro);
+}
+
+
+.admin-form label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    margin-top: 22px;
+
+    color: var(--cinza-texto);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.admin-form label:first-child {
+    margin-top: 0;
+}
+
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    background: var(--cinza);
+
+    color: var(--branco);
+
+    border: 1px solid var(--cinza-claro);
+
+    outline: none;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+
+.admin-form textarea {
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus {
+    border-color: var(--amarelo);
+}
+
+
+.admin-form select option {
+    background: var(--preto-card);
+
+    color: var(--branco);
+}
+
+
+.admin-form input[type="checkbox"] {
+    width: auto;
+
+    margin-right: 8px;
+}
+
+
+.admin-form .checkbox-promocao {
+    display: flex;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    color: var(--branco);
+
+    text-transform: none;
+
+    letter-spacing: 0;
+
+    font-size: 12px;
+}
+
+
+/* ---------- RESPONSIVO PRODUTOS ---------- */
+
+@media (max-width: 900px) {
+
+    .admin-tabela {
+        min-width: 800px;
+    }
+
+    .admin-tabela-container {
+        overflow-x: auto;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-acoes {
+        justify-content: stretch;
+    }
+
+    .admin-btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .admin-form {
+        padding: 25px 20px;
+    }
+
+}

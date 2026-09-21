@@ -130,7 +130,7 @@ $resultado_categorias = mysqli_query(
 
 
 
-    <form method="POST">
+    <form method="POST" class="admin-form">
 
 
         <label>

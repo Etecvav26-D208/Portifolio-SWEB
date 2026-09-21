@@ -19,97 +19,200 @@ $resultado = mysqli_query($conexao, $sql);
 
     <meta charset="UTF-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Produtos - SUA PACK</title>
+
+    <link rel="stylesheet" href="../admin.css">
 
 </head>
 
 <body>
 
-    <h1>Produtos</h1>
+<header class="admin-header">
 
-    <a href="cadastrar.php">
-        + Cadastrar Produto
+    <div class="logo">
+        SUA <span>PACK</span>
+    </div>
+
+    <div class="admin-identificacao">
+
+        <strong>
+            Produtos
+        </strong>
+
+        <span class="status">
+            Área Administrativa
+        </span>
+
+    </div>
+
+    <a href="../index.php" class="voltar-site">
+        ← Painel
     </a>
 
-    <br><br>
+</header>
 
-    <table border="1">
 
-        <tr>
+<main class="admin-container">
 
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Categoria</th>
-            <th>Preço</th>
-            <th>Estoque</th>
-            <th>Promoção</th>
-            <th>Ações</th>
+    <div class="boas-vindas">
 
-        </tr>
+        <h1>
+            Produtos
+        </h1>
 
-        <?php while ($produto = mysqli_fetch_assoc($resultado)) { ?>
+        <p>
+            Gerencie os produtos cadastrados na SUA PACK.
+        </p>
 
-            <tr>
+    </div>
 
-                <td>
-                    <?= $produto["id_produto"] ?>
-                </td>
 
-                <td>
-                    <?= $produto["nome"] ?>
-                </td>
+    <div class="admin-acoes">
 
-                <td>
-                    <?= $produto["categoria"] ?>
-                </td>
+        <a href="cadastrar.php" class="admin-btn">
+            + Cadastrar Produto
+        </a>
 
-                <td>
-                    R$ <?= $produto["preco"] ?>
-                </td>
+    </div>
 
-                <td>
-                    <?= $produto["estoque"] ?>
-                </td>
 
-                <td>
+    <div class="admin-tabela-container">
 
-                    <?php if ($produto["em_promocao"] == 1) { ?>
+        <table class="admin-tabela">
 
-                        Sim
+            <thead>
 
-                    <?php } else { ?>
+                <tr>
 
-                        Não
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Promoção</th>
+                    <th>Ações</th>
 
-                    <?php } ?>
+                </tr>
 
-                </td>
+            </thead>
 
-                <td>
 
-                    <a href="editar.php?id=<?= $produto["id_produto"] ?>">
-                        Editar
-                    </a>
+            <tbody>
 
-                    |
+                <?php while ($produto = mysqli_fetch_assoc($resultado)) { ?>
 
-                    <a href="excluir.php?id=<?= $produto["id_produto"] ?>">
-                        Excluir
-                    </a>
+                    <tr>
 
-                </td>
+                        <td class="admin-id">
+                            <?= $produto["id_produto"] ?>
+                        </td>
 
-            </tr>
 
-        <?php } ?>
+                        <td class="admin-produto-nome">
 
-    </table>
+                            <?= htmlspecialchars($produto["nome"]) ?>
+
+                        </td>
+
+
+                        <td>
+
+                            <?= htmlspecialchars(
+                                $produto["categoria"] ?? "Sem categoria"
+                            ) ?>
+
+                        </td>
+
+
+                        <td class="admin-preco">
+
+                            R$ <?= number_format(
+                                $produto["preco"],
+                                2,
+                                ",",
+                                "."
+                            ) ?>
+
+                        </td>
+
+
+                        <td class="admin-estoque">
+
+                            <?= $produto["estoque"] ?>
+
+                        </td>
+
+
+                        <td>
+
+                            <?php if ($produto["em_promocao"] == 1) { ?>
+
+                                <span class="admin-status promocao">
+                                    Sim
+                                </span>
+
+                            <?php } else { ?>
+
+                                <span class="admin-status">
+                                    Não
+                                </span>
+
+                            <?php } ?>
+
+                        </td>
+
+
+                        <td class="admin-acoes-tabela">
+
+                            <a
+                                href="editar.php?id=<?= $produto["id_produto"] ?>"
+                                class="btn-editar"
+                            >
+                                Editar
+                            </a>
+
+
+                            <a
+                                href="excluir.php?id=<?= $produto["id_produto"] ?>"
+                                class="btn-excluir"
+                                onclick="return confirm('Tem certeza que deseja excluir este produto?');"
+                            >
+                                Excluir
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                <?php } ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
 
     <br>
 
-    <a href="../index.php">
-        Voltar ao painel
+
+    <a href="../index.php" class="voltar-site">
+        ← Voltar ao painel
     </a>
+
+</main>
+
+
+<footer class="admin-footer">
+
+    <p>
+        SUA PACK — Área Administrativa
+    </p>
+
+</footer>
+
 
 </body>
 

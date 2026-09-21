@@ -327,7 +327,7 @@ VALUES
     'Chaveiro colorido para deixar mochila, bolsa ou chave ainda mais personalizada.',
     21.90,
     NULL,
-    'chaveiro-colorido-good-vibes.jpg',
+    'chaveiro-colorido-good-vibes.jpeg',
     5,
     FALSE,
     3
@@ -338,7 +338,7 @@ VALUES
     'Chaveiro cinza com visual moderno e discreto.',
     21.90,
     NULL,
-    'chaveiro-urbano-your-style.jpg',
+    'chaveiro-urbano-your-style.jpeg',
     5,
     FALSE,
     3
@@ -349,7 +349,7 @@ VALUES
     'Chaveiro preto e azul com estética urbana.',
     21.90,
     NULL,
-    'chaveiro-street-azul.jpg',
+    'chaveiro-street-azul.jpeg',
     5,
     FALSE,
     3
@@ -360,7 +360,7 @@ VALUES
     'Chaveiro branco e verde com visual minimalista e moderno.',
     21.90,
     NULL,
-    'chaveiro-minimalista-verde.jpg',
+    'chaveiro-minimalista-verde.jpeg',
     5,
     FALSE,
     3
@@ -371,7 +371,7 @@ VALUES
     'Chaveiro inspirado em cachorro para personalizar seus acessórios.',
     21.90,
     NULL,
-    'chaveiro-cachorro-personalizado.jpg',
+    'chaveiro-cachorro-personalizado.jpeg',
     5,
     FALSE,
     3

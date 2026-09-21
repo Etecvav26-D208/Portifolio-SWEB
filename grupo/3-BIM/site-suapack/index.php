@@ -64,7 +64,7 @@ include("includes/categorias.php");
         </nav>
 
 
-        <a href="#" class="carrinho">
+        <a href="carrinho.php" class="carrinho">
             🛒
         </a>
 
@@ -616,7 +616,7 @@ include("includes/categorias.php");
                         ?>
 
 
-                        <a href="#">
+                        <a href="produtos.php">
 
                             VER PRODUTO
 

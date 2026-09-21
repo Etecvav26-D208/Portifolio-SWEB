@@ -1,6 +1,6 @@
 <?php
 
-include("../conexao.php");
+include(__DIR__ . "/../conexao.php");
 
 
 /* Busca todas as categorias */

@@ -1,6 +1,5 @@
 <?php
-
-include("../conexao.php");
+include(__DIR__ . "/../conexao.php");
 
 $sql_produtos = "
     SELECT 

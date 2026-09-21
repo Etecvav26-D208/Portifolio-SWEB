@@ -249,7 +249,7 @@ SELECT
     'Chaveiro colorido personalizado com estrelas, flores, corações e detalhes em amarelo e verde. Ideal para mochilas, bolsas, estojos e chaves.',
     21.90,
     NULL,
-    'chaveiro_colorido.jpg',
+    'chaveiro_colorido-god-vibes.jpg',
     5,
     0,
     id_categoria
@@ -263,7 +263,7 @@ SELECT
     'Chaveiro cinza personalizado com estrelas, smiley, raio e detalhes urbanos. Perfeito para mochilas, bolsas, estojos e chaves.',
     21.90,
     NULL,
-    'chaveiro_cinza.jpg',
+    'chaveiro-urbano-your-style.jpg',
     5,
     0,
     id_categoria
@@ -277,7 +277,7 @@ SELECT
     'Chaveiro preto e azul com estilo urbano, detalhes em azul neon, estrelas, raio e elementos personalizados. Ideal para mochilas, bolsas e chaves.',
     21.90,
     NULL,
-    'chaveiro_preto_azul.jpg',
+    'chaveiro-street-azul.jpg',
     5,
     0,
     id_categoria
@@ -291,7 +291,7 @@ SELECT
     'Chaveiro branco e verde personalizado com detalhes de coroa e estilo minimalista. Uma opção simples e moderna para mochilas, bolsas e chaves.',
     21.90,
     NULL,
-    'chaveiro_branco_verde.jpg',
+    'chaveiro-minimalista-verde.jpg',
     5,
     0,
     id_categoria
@@ -305,7 +305,7 @@ SELECT
     'Chaveiro de cachorro personalizado com desenho de cachorro, patinhas e espaço para nome. Ideal para quem ama cachorro e quer levar seu pet sempre com você.',
     21.90,
     NULL,
-    'chaveiro_cachorro.jpg',
+    'chaveiro-cachorro-personalizado.jpg',
     5,
     0,
     id_categoria
@@ -371,11 +371,11 @@ WHERE nome = 'Bonés'
 UNION ALL
 
 SELECT
-    'Boné Streetwear Verde',
-    'Boné verde estilo streetwear com design moderno e casual. Perfeito para completar looks urbanos do dia a dia.',
+    'Boné Feminino Gótico',
+    'Boné preto com correntes estilo gótico com design extravagante e moderno. Perfeito para completar looks urbanos do dia a dia.',
     35.90,
     NULL,
-    'bone_streetwear_verde.jpg',
+    'bone_feminino_gotico.jpg',
     5,
     0,
     id_categoria
@@ -399,11 +399,11 @@ WHERE nome = 'Bonés'
 UNION ALL
 
 SELECT
-    'Boné Streetwear Branco',
-    'Boné branco estilo streetwear com visual clean, moderno e versátil. Combina facilmente com diferentes roupas e acessórios.',
+    'Boné Florido Amarelo',
+    'Boné Florido estilo deicado com visual clean, moderno e versátil. Combina facilmente com diferentes roupas e acessórios.',
     35.90,
     NULL,
-    'bone_streetwear_branco.jpg',
+    'bone_floral.jpg',
     5,
     0,
     id_categoria
@@ -413,11 +413,11 @@ WHERE nome = 'Bonés'
 UNION ALL
 
 SELECT
-    'Boné Preto e Azul SUA PACK',
-    'Boné preto e azul com estilo streetwear e detalhes urbanos. Ideal para quem procura um acessório moderno e personalizado.',
+    'Boné Gótico SUA PACK',
+    'Boné preto com estilo streetwear e gótico. Ideal para quem procura um acessório moderno e personalizado.',
     35.90,
     NULL,
-    'bone_preto_azul.jpg',
+    'bone_gotico.jpg',
     5,
     0,
     id_categoria

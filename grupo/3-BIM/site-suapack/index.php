@@ -92,62 +92,49 @@ include("includes/categorias.php");
     </section>
 
 
-    <!-- CATEGORIAS -->
-    <section id="categorias" class="categorias">
+   <!-- CATEGORIAS -->
+<section id="categorias" class="categorias">
 
-        <div class="section-title">
+<div class="section-title">
 
-            <p>CATEGORIAS</p>
+    <p>PRODUTOS</p>
 
-            <h2>
-                ESCOLHA SEU ESTILO
-            </h2>
+    <h2>
+        ENCONTRE SEU ESTILO
+    </h2>
 
-        </div>
+</div>
 
 
-        <div class="categorias-grid">
+<div class="categorias-grid">
 
-            <?php if (isset($resultado_categorias) && mysqli_num_rows($resultado_categorias) > 0): ?>
+    <a href="produtos.php" class="categoria-card">
 
-                <?php while ($categoria = mysqli_fetch_assoc($resultado_categorias)): ?>
+        <div class="categoria-content">
 
-                    <a
-                        href="produtos.php?id_categoria=<?= $categoria["id_categoria"] ?>"
-                        class="categoria-card"
-                    >
+            <span>
+                SUA PACK
+            </span>
 
-                        <div class="categoria-content">
+            <h3>
+                TODOS OS PRODUTOS
+            </h3>
 
-                            <span>
-                                SUA PACK
-                            </span>
+            <p>
+                MOCHILAS • BONÉS • CHAVEIROS • ADESIVOS • PULSEIRAS
+            </p>
 
-                            <h3>
-                                <?= htmlspecialchars($categoria["nome"]) ?>
-                            </h3>
-
-                            <p>
-                                VER PRODUTOS →
-                            </p>
-
-                        </div>
-
-                    </a>
-
-                <?php endwhile; ?>
-
-            <?php else: ?>
-
-                <p>
-                    Nenhuma categoria cadastrada.
-                </p>
-
-            <?php endif; ?>
+            <p>
+                VER TODOS OS PRODUTOS →
+            </p>
 
         </div>
 
-    </section>
+    </a>
+
+</div>
+
+</section>
 
 
     <!-- PROMOÇÕES -->

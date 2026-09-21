@@ -1,9 +1,7 @@
+
 /* ========================================
    SUA PACK - SITE
    ======================================== */
-
-
-/* ---------- CONFIGURAÇÕES GERAIS ---------- */
 
 * {
     margin: 0;
@@ -12,7 +10,9 @@
 }
 
 
-/* ---------- VARIÁVEIS ---------- */
+/* ========================================
+   VARIÁVEIS
+   ======================================== */
 
 :root {
     --preto: #0b0b0b;
@@ -21,25 +21,29 @@
     --amarelo: #f4e900;
     --verde: #a6ff00;
     --branco: #f5f5f5;
+    --cinza-texto: #aaa;
 }
 
 
-/* ---------- ROLAGEM ---------- */
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+   ======================================== */
 
 html {
     scroll-behavior: smooth;
 }
 
-
-/* ---------- CORPO DO SITE ---------- */
-
 body {
     background-color: var(--preto);
     color: var(--branco);
 
-    font-family: "Poppins", Arial, sans-serif;
+    font-family: Arial, sans-serif;
 
     min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
 }
 
 
@@ -56,8 +60,6 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    gap: 30px;
-
     background-color: var(--preto);
 
     border-bottom: 1px solid var(--cinza-claro);
@@ -71,51 +73,21 @@ body {
 
 /* LOGO */
 
-.logo {
-    font-family: "Bebas Neue", Impact, sans-serif;
+.logo a {
+    color: var(--branco);
+
+    font-family: Impact, "Arial Black", sans-serif;
 
     font-size: 38px;
 
     letter-spacing: 2px;
 
     white-space: nowrap;
-}
-
-
-.logo span {
-    color: var(--amarelo);
-}
-
-
-/* MENU */
-
-.menu {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 22px;
-}
-
-
-.menu a {
-    color: var(--branco);
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    text-transform: uppercase;
 
     transition: 0.3s;
 }
 
-
-.menu a:hover {
+.logo a:hover {
     color: var(--amarelo);
 }
 
@@ -125,21 +97,20 @@ body {
 .carrinho {
     color: var(--branco);
 
-    text-decoration: none;
-
-    font-size: 22px;
+    font-size: 25px;
 
     transition: 0.3s;
 }
 
-
 .carrinho:hover {
-    transform: scale(1.1);
+    color: var(--amarelo);
+
+    transform: scale(1.15);
 }
 
 
 /* ========================================
-   BANNER PRINCIPAL / HERO
+   HERO / BANNER PRINCIPAL
    ======================================== */
 
 .hero {
@@ -147,28 +118,36 @@ body {
 
     padding: 70px 6%;
 
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
+    display: flex;
     align-items: center;
 
-    gap: 60px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(11, 11, 11, 1) 0%,
+            rgba(11, 11, 11, 0.96) 50%,
+            rgba(11, 11, 11, 0.85) 100%
+        );
 
     overflow: hidden;
 }
 
 
-/* PEQUENO TEXTO */
+.hero-content {
+    max-width: 750px;
+}
 
-.tag {
+
+/* TEXTO PEQUENO */
+
+.hero-small {
     color: var(--verde);
 
     font-size: 12px;
 
-    font-weight: 600;
+    font-weight: bold;
 
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 
     margin-bottom: 20px;
 }
@@ -177,58 +156,54 @@ body {
 /* TÍTULO */
 
 .hero h1 {
-    font-family: "Bebas Neue", Impact, sans-serif;
+    font-family: Impact, "Arial Black", sans-serif;
 
-    font-size: clamp(75px, 10vw, 150px);
+    font-size: clamp(65px, 10vw, 145px);
 
     line-height: 0.85;
 
-    letter-spacing: 1px;
-}
+    letter-spacing: 2px;
 
-
-.hero h1 span {
-    color: var(--amarelo);
+    margin-bottom: 30px;
 }
 
 
 /* DESCRIÇÃO */
 
-.descricao {
-    max-width: 520px;
+.hero-content > p:not(.hero-small) {
+    max-width: 600px;
 
-    margin: 30px 0;
+    color: var(--cinza-texto);
 
-    color: #adadad;
-
-    font-size: 15px;
+    font-size: 16px;
 
     line-height: 1.8;
+
+    margin-bottom: 35px;
 }
 
 
 /* BOTÃO */
 
-.botao {
+.btn {
     display: inline-block;
 
-    padding: 16px 28px;
+    padding: 15px 28px;
 
     background-color: var(--amarelo);
 
     color: #000;
 
-    text-decoration: none;
-
     font-size: 13px;
 
-    font-weight: 700;
+    font-weight: bold;
+
+    text-transform: uppercase;
 
     transition: 0.3s;
 }
 
-
-.botao:hover {
+.btn:hover {
     background-color: var(--verde);
 
     transform: translateY(-3px);
@@ -236,55 +211,7 @@ body {
 
 
 /* ========================================
-   IMAGEM PRINCIPAL
-   ======================================== */
-
-.hero-imagem {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-}
-
-
-.imagem-destaque {
-    width: 400px;
-
-    max-width: 100%;
-
-    height: 500px;
-
-    background: linear-gradient(
-        145deg,
-        var(--amarelo),
-        var(--verde)
-    );
-
-    color: #000;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    font-family: "Bebas Neue", Impact, sans-serif;
-
-    font-size: 80px;
-
-    line-height: 0.8;
-
-    transform: rotate(3deg);
-
-    box-shadow: 20px 20px 0 #222;
-}
-
-
-/* ========================================
-   SOBRE A MARCA
+   SOBRE
    ======================================== */
 
 .sobre {
@@ -296,43 +223,43 @@ body {
 }
 
 
-.titulo-pequeno {
+.sobre-content {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.section-small {
     color: var(--verde);
 
     font-size: 11px;
 
-    font-weight: 600;
+    font-weight: bold;
 
     letter-spacing: 4px;
 
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 
 .sobre h2 {
-    max-width: 950px;
+    font-family: Impact, "Arial Black", sans-serif;
 
-    margin: 0 auto;
-
-    font-family: "Bebas Neue", Impact, sans-serif;
-
-    font-size: clamp(55px, 7vw, 100px);
+    font-size: clamp(45px, 7vw, 90px);
 
     line-height: 0.9;
+
+    margin-bottom: 35px;
 }
 
 
-.sobre h2 span {
-    color: var(--amarelo);
-}
-
-
-.sobre > p:last-child {
+.sobre-content p:not(.section-small) {
     max-width: 700px;
 
-    margin: 30px auto 0;
+    margin: 15px auto;
 
-    color: #aaa;
+    color: var(--cinza-texto);
 
     font-size: 15px;
 
@@ -344,25 +271,30 @@ body {
    TÍTULOS DAS SEÇÕES
    ======================================== */
 
-.titulo-secao p {
+.section-title {
+    margin-bottom: 45px;
+}
+
+
+.section-title p {
     color: var(--verde);
 
     font-size: 11px;
 
-    font-weight: 600;
+    font-weight: bold;
 
     letter-spacing: 4px;
+
+    margin-bottom: 10px;
 }
 
 
-.titulo-secao h2 {
-    margin-bottom: 45px;
+.section-title h2 {
+    font-family: Impact, "Arial Black", sans-serif;
 
-    font-family: "Bebas Neue", Impact, sans-serif;
+    font-size: clamp(50px, 7vw, 90px);
 
-    font-size: clamp(65px, 8vw, 110px);
-
-    line-height: 1;
+    line-height: 0.9;
 }
 
 
@@ -377,7 +309,7 @@ body {
 }
 
 
-.grade-categorias {
+.categorias-grid {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -386,26 +318,22 @@ body {
 }
 
 
-/* CARD DE CADA CATEGORIA */
+/* CARD */
 
 .categoria-card {
-    min-height: 320px;
+    min-height: 280px;
 
-    padding: 25px;
+    padding: 30px;
 
     background-color: var(--cinza);
 
     color: var(--branco);
 
-    text-decoration: none;
-
     border: 1px solid var(--cinza-claro);
 
     display: flex;
 
-    flex-direction: column;
-
-    justify-content: space-between;
+    align-items: flex-end;
 
     transition: 0.3s;
 }
@@ -420,39 +348,39 @@ body {
 }
 
 
-/* NÚMERO DA CATEGORIA */
-
-.numero {
-    opacity: 0.5;
-
-    font-family: "Bebas Neue", Impact, sans-serif;
-
-    font-size: 25px;
+.categoria-content {
+    width: 100%;
 }
 
 
-.categoria-card p {
-    font-size: 10px;
+.categoria-content span {
+    font-size: 11px;
 
-    font-weight: 600;
+    font-weight: bold;
 
     letter-spacing: 3px;
+
+    opacity: 0.7;
 }
 
 
 .categoria-card h3 {
-    margin: 5px 0 15px;
+    margin: 8px 0 15px;
 
-    font-family: "Bebas Neue", Impact, sans-serif;
+    font-family: Impact, "Arial Black", sans-serif;
 
-    font-size: 50px;
+    font-size: 45px;
+
+    text-transform: uppercase;
 }
 
 
-.categoria-card div > span {
-    font-size: 12px;
+.categoria-card p {
+    font-size: 11px;
 
-    font-weight: 700;
+    font-weight: bold;
+
+    letter-spacing: 2px;
 }
 
 
@@ -463,149 +391,11 @@ body {
 .promocoes {
     padding: 120px 6%;
 
-    background-color: var(--preto);
+    background-color: #111;
 }
 
 
-/* BANNER AMARELO */
-
-.promo-banner {
-    min-height: 420px;
-
-    padding: 60px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 40px;
-
-    background-color: var(--amarelo);
-
-    color: #000;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-.promo-tag {
-    margin-bottom: 15px;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 4px;
-}
-
-
-.promo-texto h2 {
-    font-family: "Bebas Neue", Impact, sans-serif;
-
-    font-size: clamp(65px, 8vw, 120px);
-
-    line-height: 0.8;
-}
-
-
-.promo-texto h2 span {
-    color: #111;
-}
-
-
-.promo-descricao {
-    max-width: 500px;
-
-    margin: 25px 0;
-
-    font-size: 14px;
-
-    line-height: 1.7;
-}
-
-
-/* BOTÃO DAS PROMOÇÕES */
-
-.promo-botao {
-    display: inline-block;
-
-    padding: 15px 25px;
-
-    background-color: #000;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    transition: 0.3s;
-}
-
-
-.promo-botao:hover {
-    background-color: var(--verde);
-
-    color: #000;
-
-    transform: translateY(-3px);
-}
-
-
-/* ========================================
-   CÍRCULO 30% OFF
-   ======================================== */
-
-.promo-destaque {
-    min-width: 230px;
-
-    min-height: 230px;
-
-    border: 5px solid #000;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    transform: rotate(8deg);
-}
-
-
-.promo-destaque span {
-    font-size: 18px;
-
-    font-weight: 700;
-}
-
-
-.promo-destaque strong {
-    font-family: "Bebas Neue", Impact, sans-serif;
-
-    font-size: 90px;
-
-    line-height: 0.9;
-}
-
-
-/* ========================================
-   PRODUTOS EM PROMOÇÃO
-   ======================================== */
-
-.ofertas {
-    margin-top: 35px;
-
+.produtos-grid {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -614,22 +404,29 @@ body {
 }
 
 
-.oferta-card {
-    padding-bottom: 25px;
+/* CARD DE PRODUTO */
 
+.produto-card {
     background-color: #f0f0ea;
 
     color: #000;
 
+    overflow: hidden;
+
     position: relative;
 
-    overflow: hidden;
+    transition: 0.3s;
 }
 
 
-/* IMAGEM DA OFERTA */
+.produto-card:hover {
+    transform: translateY(-5px);
+}
 
-.oferta-imagem {
+
+/* IMAGEM */
+
+.produto-imagem {
     width: 100%;
 
     aspect-ratio: 1 / 1;
@@ -643,10 +440,12 @@ body {
     align-items: center;
 
     justify-content: center;
+
+    position: relative;
 }
 
 
-.oferta-imagem img {
+.produto-imagem img {
     width: 100%;
 
     height: 100%;
@@ -654,6 +453,15 @@ body {
     object-fit: contain;
 
     display: block;
+}
+
+
+.sem-imagem {
+    color: #777;
+
+    font-size: 12px;
+
+    font-weight: bold;
 }
 
 
@@ -674,17 +482,34 @@ body {
 
     font-size: 12px;
 
-    font-weight: 800;
+    font-weight: bold;
 }
 
 
-.oferta-card .produto-categoria {
-    margin: 18px 20px 0;
+/* INFORMAÇÕES */
+
+.produto-info {
+    padding: 20px;
 }
 
 
-.oferta-card h3 {
-    margin: 5px 20px;
+.produto-categoria {
+    margin-bottom: 8px;
+
+    color: #777;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.produto-info h3 {
+    margin-bottom: 12px;
 
     font-size: 18px;
 }
@@ -692,12 +517,12 @@ body {
 
 /* PREÇOS */
 
-.precos {
-    margin: 10px 20px 15px;
-
+.produto-precos {
     display: flex;
 
     flex-direction: column;
+
+    margin-bottom: 15px;
 }
 
 
@@ -710,33 +535,37 @@ body {
 }
 
 
-.preco-promocional {
-    font-size: 22px;
+.preco {
+    display: block;
 
-    font-weight: 800;
+    margin-bottom: 15px;
+
+    font-size: 21px;
+
+    font-weight: bold;
 }
 
 
-.oferta-card > a {
-    margin: 0 20px;
+/* LINK */
 
+.produto-link {
     color: #000;
 
     font-size: 12px;
 
-    font-weight: 700;
+    font-weight: bold;
 
-    text-decoration: none;
+    text-transform: uppercase;
 }
 
 
-.oferta-card > a:hover {
+.produto-link:hover {
     text-decoration: underline;
 }
 
 
 /* ========================================
-   PRODUTOS EM DESTAQUE
+   DESTAQUES
    ======================================== */
 
 .destaques {
@@ -748,110 +577,89 @@ body {
 }
 
 
-/* CORRIGE A COR DO PEQUENO TÍTULO */
-
-.destaques .titulo-secao p {
+.destaques .section-title p {
     color: #555;
 }
 
 
-.grade-produtos {
-    display: grid;
+/* BOTÃO VER TODOS */
 
-    grid-template-columns: repeat(3, 1fr);
+.ver-todos {
+    margin-top: 50px;
 
-    gap: 25px;
+    text-align: center;
 }
 
 
-.produto {
-    position: relative;
+.destaques .btn {
+    background-color: #000;
+
+    color: #fff;
 }
 
 
-/* IMAGEM DO PRODUTO */
+.destaques .btn:hover {
+    background-color: var(--amarelo);
 
-.produto-imagem {
-    width: 100%;
-
-    aspect-ratio: 1 / 1;
-
-    background-color: #fff;
-
-    overflow: hidden;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    transition: 0.3s;
+    color: #000;
 }
 
 
-.produto-imagem img {
-    width: 100%;
+/* ========================================
+   CHAMADA FINAL
+   ======================================== */
 
-    height: 100%;
+.cta {
+    padding: 120px 6%;
 
-    object-fit: contain;
+    background-color: var(--amarelo);
 
-    display: block;
-}
-
-
-.produto:hover .produto-imagem {
-    transform: translateY(-5px);
-}
-
-
-/* CATEGORIA DO PRODUTO */
-
-.produto-categoria {
-    margin-top: 15px;
-
-    color: #777;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 2px;
-}
-
-
-.produto h3 {
-    margin: 5px 0;
-
-    font-size: 17px;
-}
-
-
-/* PREÇO */
-
-.preco {
-    margin-bottom: 12px;
-
-    font-size: 17px;
-
-    font-weight: 700;
-}
-
-
-.produto a {
     color: #000;
 
-    font-size: 12px;
-
-    font-weight: 700;
-
-    text-decoration: none;
+    text-align: center;
 }
 
 
-.produto a:hover {
-    text-decoration: underline;
+.cta-content {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.cta-content p {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+}
+
+
+.cta h2 {
+    font-family: Impact, "Arial Black", sans-serif;
+
+    font-size: clamp(50px, 8vw, 100px);
+
+    line-height: 0.85;
+
+    margin-bottom: 35px;
+}
+
+
+.cta .btn {
+    background-color: #000;
+
+    color: #fff;
+}
+
+
+.cta .btn:hover {
+    background-color: var(--verde);
+
+    color: #000;
 }
 
 
@@ -868,55 +676,85 @@ body {
 }
 
 
-.footer-logo {
-    font-family: "Bebas Neue", Impact, sans-serif;
-
-    font-size: 70px;
-}
-
-
-.footer-logo span {
-    color: var(--amarelo);
-}
-
-
-.footer p {
-    color: #888;
-}
-
-
-/* REDES SOCIAIS */
-
-.redes {
-    margin: 25px 0;
-
+.footer-content {
     display: flex;
 
     justify-content: center;
 
-    flex-wrap: wrap;
+    gap: 100px;
 
-    gap: 25px;
+    flex-wrap: wrap;
 }
 
 
-.redes a {
-    color: var(--branco);
+.footer-logo {
+    font-family: Impact, "Arial Black", sans-serif;
 
-    text-decoration: none;
+    font-size: 45px;
+}
+
+
+.footer-logo p {
+    margin-top: 5px;
+
+    color: #888;
+
+    font-family: Arial, sans-serif;
 
     font-size: 13px;
+}
+
+
+.footer-links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    text-align: left;
+}
+
+
+.footer-links h3 {
+    margin-bottom: 8px;
+
+    color: var(--branco);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.footer-links a {
+    color: #888;
+
+    font-size: 12px;
 
     transition: 0.3s;
 }
 
 
-.redes a:hover {
+.footer-links a:hover {
     color: var(--amarelo);
 }
 
 
-.copyright {
+/* RODAPÉ FINAL */
+
+.footer-bottom {
+    margin-top: 60px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--cinza-claro);
+}
+
+
+.footer-bottom p {
+    color: #666;
+
     font-size: 11px;
 }
 
@@ -927,54 +765,23 @@ body {
 
 @media (max-width: 900px) {
 
-    /* Esconde o menu grande */
-
-    .menu {
-        display: none;
-    }
-
-
-    /* HERO VIRA UMA COLUNA */
-
     .hero {
-        grid-template-columns: 1fr;
-
-        text-align: center;
+        min-height: 650px;
     }
 
 
-    .descricao {
-        margin-left: auto;
-
-        margin-right: auto;
-    }
-
-
-    /* CATEGORIAS */
-
-    .grade-categorias {
+    .categorias-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* PROMOÇÃO */
-
-    .promo-banner {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-
-    .ofertas {
+    .produtos-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* PRODUTOS */
-
-    .grade-produtos {
-        grid-template-columns: repeat(2, 1fr);
+    .footer-content {
+        gap: 60px;
     }
 
 }
@@ -995,8 +802,13 @@ body {
     }
 
 
-    .logo {
+    .logo a {
         font-size: 30px;
+    }
+
+
+    .carrinho {
+        font-size: 23px;
     }
 
 
@@ -1005,34 +817,28 @@ body {
     .hero {
         min-height: auto;
 
-        padding: 70px 20px;
+        padding: 80px 20px;
     }
 
 
     .hero h1 {
-        font-size: 75px;
+        font-size: 70px;
     }
 
 
-    .tag {
+    .hero-small {
         font-size: 10px;
 
-        letter-spacing: 2px;
+        letter-spacing: 3px;
     }
 
 
-    .imagem-destaque {
-        width: 270px;
-
-        height: 350px;
-
-        font-size: 55px;
-
-        box-shadow: 10px 10px 0 #222;
+    .hero-content > p:not(.hero-small) {
+        font-size: 14px;
     }
 
 
-    /* ESPAÇAMENTO DAS SEÇÕES */
+    /* SEÇÕES */
 
     .sobre,
     .categorias,
@@ -1042,53 +848,75 @@ body {
     }
 
 
+    .section-title {
+        margin-bottom: 35px;
+    }
+
+
+    .section-title h2 {
+        font-size: 55px;
+    }
+
+
     /* CATEGORIAS */
 
-    .grade-categorias {
+    .categorias-grid {
         grid-template-columns: 1fr;
     }
 
 
     .categoria-card {
-        min-height: 250px;
+        min-height: 220px;
     }
 
 
-    /* PROMOÇÕES */
-
-    .promo-banner {
-        padding: 35px 25px;
-    }
-
-
-    .promo-destaque {
-        min-width: 170px;
-
-        min-height: 170px;
-    }
-
-
-    .promo-destaque strong {
-        font-size: 65px;
-    }
-
-
-    .ofertas {
-        grid-template-columns: 1fr;
+    .categoria-card h3 {
+        font-size: 40px;
     }
 
 
     /* PRODUTOS */
 
-    .grade-produtos {
+    .produtos-grid {
         grid-template-columns: 1fr;
+    }
+
+
+    /* CTA */
+
+    .cta {
+        padding: 90px 20px;
+    }
+
+
+    .cta h2 {
+        font-size: 55px;
     }
 
 
     /* RODAPÉ */
 
+    .footer {
+        padding: 60px 20px 30px;
+    }
+
+
+    .footer-content {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 40px;
+    }
+
+
+    .footer-links {
+        text-align: center;
+    }
+
+
     .footer-logo {
-        font-size: 55px;
+        font-size: 40px;
     }
 
 }

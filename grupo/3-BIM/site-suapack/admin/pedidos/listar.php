@@ -43,7 +43,7 @@ $resultado = mysqli_query($conexao, $sql);
         </span>
 
     </div>
-
+    <link rel="stylesheet" href="../admin.css"> 
     <a href="../index.php" class="voltar-site">
         ← Painel
     </a>

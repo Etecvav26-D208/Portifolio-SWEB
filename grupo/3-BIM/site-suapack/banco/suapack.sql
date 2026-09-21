@@ -229,7 +229,7 @@ VALUES
     'Boné amarelo com visual urbano e descontraído.',
     59.90,
     NULL,
-    'bone_amarelo.jpeg',
+    'bone_streetwear_amarelo.jpeg',
     5,
     FALSE,
     2
@@ -240,7 +240,7 @@ VALUES
     'Boné azul com estilo streetwear para completar diferentes looks.',
     59.90,
     NULL,
-    'bone_azul.jpeg',
+    'bone_streetwear_azul.jpeg',
     5,
     FALSE,
     2
@@ -273,7 +273,7 @@ VALUES
     'Boné com visual gótico e inspiração streetwear.',
     64.90,
     NULL,
-    'bone_masculino_gotico.png',
+    'bone_gotico.png',
     5,
     FALSE,
     2
@@ -284,7 +284,7 @@ VALUES
     'Boné preto básico e versátil para compor diferentes estilos.',
     54.90,
     NULL,
-    'bone_preto.jpeg',
+    'bone_streetwear_preto.jpeg',
     5,
     FALSE,
     2
@@ -295,7 +295,7 @@ VALUES
     'Boné vermelho com visual marcante e urbano.',
     59.90,
     NULL,
-    'bone_vermelho.jpeg',
+    'bone_sua_pack.jpeg',
     5,
     FALSE,
     2
@@ -327,7 +327,7 @@ VALUES
     'Chaveiro colorido para deixar mochila, bolsa ou chave ainda mais personalizada.',
     21.90,
     NULL,
-    'chaveiro_colorido.jpg',
+    'chaveiro-colorido-good-vibes.jpg',
     5,
     FALSE,
     3
@@ -338,7 +338,7 @@ VALUES
     'Chaveiro cinza com visual moderno e discreto.',
     21.90,
     NULL,
-    'chaveiro_cinza.jpg',
+    'chaveiro-urbano-your-style.jpg',
     5,
     FALSE,
     3
@@ -349,7 +349,7 @@ VALUES
     'Chaveiro preto e azul com estética urbana.',
     21.90,
     NULL,
-    'chaveiro_preto_azul.jpg',
+    'chaveiro-street-azul.jpg',
     5,
     FALSE,
     3
@@ -357,10 +357,10 @@ VALUES
 
 (
     'Chaveiro Branco e Verde',
-    'Chaveiro branco e verde com visual divertido e moderno.',
+    'Chaveiro branco e verde com visual minimalista e moderno.',
     21.90,
     NULL,
-    'chaveiro_branco_verde.jpg',
+    'chaveiro-minimalista-verde.jpg',
     5,
     FALSE,
     3
@@ -371,7 +371,7 @@ VALUES
     'Chaveiro inspirado em cachorro para personalizar seus acessórios.',
     21.90,
     NULL,
-    'chaveiro_cachorro.jpg',
+    'chaveiro-cachorro-personalizado.jpg',
     5,
     FALSE,
     3

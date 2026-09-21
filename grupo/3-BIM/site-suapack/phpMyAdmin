@@ -1,4 +1,14 @@
--- Garante que a categoria Mochilas exista
+-- ============================================================
+-- SUA PACK - CADASTRO COMPLETO DOS PRODUTOS
+-- ============================================================
+
+USE suapack;
+
+
+-- ============================================================
+-- 1. CATEGORIA: MOCHILAS
+-- ============================================================
+
 INSERT INTO categorias (nome)
 SELECT 'Mochilas'
 WHERE NOT EXISTS (
@@ -7,290 +17,11 @@ WHERE NOT EXISTS (
     WHERE nome = 'Mochilas'
 );
 
--- Cadastra as 7 mochilas/bolsas
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
 
-SELECT
-    'Bolsa Gótica',
-    'Bolsa compacta com estilo gótico e urbano, perfeita para completar looks mais marcantes. Design versátil para levar seus itens essenciais no dia a dia.',
-    89.90, NULL, 'bolsa_gotica.png', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Mochilas'
-
-UNION ALL
-
-SELECT
-    'Mochila Gótica',
-    'Mochila com visual gótico e urbano, ideal para quem gosta de acessórios diferentes e cheios de personalidade. Espaçosa para acompanhar a rotina de estudos e passeios.',
-    109.90, NULL, 'mochila_gotica.png', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Mochilas'
-
-UNION ALL
-
-SELECT
-    'Mochila Personalizável',
-    'Mochila criada para você deixar do seu jeito. Combine acessórios, pins e detalhes personalizados para criar uma peça única com a sua identidade.',
-    99.90, NULL, 'mochila_personalizavel.png', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Mochilas'
-
-UNION ALL
-
-SELECT
-    'Mochila Dreamy',
-    'Mochila com estilo moderno e visual delicado, trazendo uma vibe criativa para o dia a dia. Uma opção prática para estudos, passeios e rolês.',
-    114.90, NULL, 'mochila_dreamy.jpeg', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Mochilas'
-
-UNION ALL
-
-SELECT
-    'Mochila Custom Style',
-    'Modelo inspirado no estilo streetwear, com visual moderno e versátil. Perfeita para quem quer praticidade sem abrir mão da personalidade.',
-    104.90, NULL, 'mochila_custom_style.jpeg', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Mochilas'
-
-UNION ALL
-
-SELECT
-    'Mochila Azul Aqua',
-    'Mochila em uma estética azul aqua, com visual moderno e descontraído. Ideal para compor looks coloridos e levar seus itens para a escola ou passeios.',
-    94.90, NULL, 'mochila_azul_aqua.png', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Mochilas'
-
-UNION ALL
-
-SELECT
-    'Bolsa Urban',
-    'Bolsa compacta com inspiração urbana, feita para acompanhar diferentes momentos do dia. Prática, estilosa e fácil de combinar.',
-    84.90, NULL, 'bolsa_urban.jpeg', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Mochilas';
-
-
--- ==================================================
--- GARANTE QUE A CATEGORIA ADESIVOS EXISTA
--- ==================================================
-
-INSERT INTO categorias (nome)
-SELECT 'Adesivos'
-WHERE NOT EXISTS (
-    SELECT 1
-    FROM categorias
-    WHERE nome = 'Adesivos'
-);
-
-
--- ==================================================
--- CADASTRA OS 4 PACKS DE ADESIVOS
--- R$ 18,90 | 5 UNIDADES | SEM PROMOÇÃO
--- ==================================================
-
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-
-SELECT
-    'Pack Sua Pack',
-    'Pack de adesivos exclusivos da SUA PACK com estética urbana, moderna e cheia de atitude. Ideal para personalizar cadernos, notebooks, garrafas, capas e outros objetos.',
-    18.90, NULL, 'adesivo_pack_1.png', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Adesivos'
-
-UNION ALL
-
-SELECT
-    'Pack Girl Power',
-    'Pack de adesivos exclusivos com frases e elementos em rosa, preto e branco, perfeito para personalizar seus objetos e expressar sua personalidade.',
-    18.90, NULL, 'adesivo_pack_2.png', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Adesivos'
-
-UNION ALL
-
-SELECT
-    'Pack Street Blue',
-    'Pack de adesivos com estética streetwear em azul, preto e branco, com elementos urbanos e visual marcante.',
-    18.90, NULL, 'adesivo_pack_3.png', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Adesivos'
-
-UNION ALL
-
-SELECT
-    'Pack Skull Style',
-    'Pack de adesivos com estética dark e urbana, trazendo elementos de caveira e identidade street para quem gosta de um visual mais ousado.',
-    18.90, NULL, 'adesivo_pack_4.png', 5, 0, id_categoria
-FROM categorias WHERE nome = 'Adesivos';
-USE suapack;
-
-USE suapack;
-
--- Garante que a categoria Chaveiros exista
-INSERT INTO categorias (nome)
-SELECT 'Chaveiros'
-WHERE NOT EXISTS (
-    SELECT 1
-    FROM categorias
-    WHERE nome = 'Chaveiros'
-);
-
--- CHAVEIRO 1
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Chaveiro Colorido SUA PACK',
-    'Chaveiro colorido personalizado com estrelas, flores, corações e detalhes em amarelo e verde. Ideal para mochilas, bolsas, estojos e chaves.',
-    21.90,
-    NULL,
-    'chaveiro_colorido.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
-);
-
--- CHAVEIRO 2
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Chaveiro Cinza SUA PACK',
-    'Chaveiro cinza personalizado com estrelas, smiley, raio e detalhes urbanos. Perfeito para mochilas, bolsas, estojos e chaves.',
-    21.90,
-    NULL,
-    'chaveiro_cinza.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
-);
-
--- CHAVEIRO 3
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Chaveiro Preto e Azul SUA PACK',
-    'Chaveiro preto e azul com estilo urbano, detalhes em azul neon, estrelas, raio e elementos personalizados. Ideal para mochilas, bolsas e chaves.',
-    21.90,
-    NULL,
-    'chaveiro_preto_azul.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
-);
-
--- CHAVEIRO 4
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Chaveiro Branco e Verde SUA PACK',
-    'Chaveiro branco e verde personalizado com detalhes de coroa e estilo minimalista. Uma opção simples e moderna para mochilas, bolsas e chaves.',
-    21.90,
-    NULL,
-    'chaveiro_branco_verde.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
-);
-
--- CHAVEIRO 5
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Chaveiro de Cachorro Personalizado',
-    'Chaveiro de cachorro personalizado com desenho de cachorro, patinhas e espaço com nome. Ideal para quem ama cachorro e quer levar seu pet sempre com você.',
-    21.90,
-    NULL,
-    'chaveiro_cachorro.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
-);
-USE suapack;
-
--- Garante que a categoria Bonés exista
-INSERT INTO categorias (nome)
-SELECT 'Bonés'
-WHERE NOT EXISTS (
-    SELECT 1
-    FROM categorias
-    WHERE nome = 'Bonés'
-);
-
--- BONÉ 1
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Boné Streetwear Preto',
-    'Boné preto estilo streetwear com visual urbano e moderno. Ideal para combinar com mochilas, roupas e acessórios da SUA PACK.',
-    35.90,
-    NULL,
-    'bone_streetwear_preto.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
-);
-
--- BONÉ 2
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Boné Streetwear Azul',
-    'Boné azul estilo streetwear com visual moderno e urbano. Perfeito para quem gosta de acessórios coloridos e combinações diferentes.',
-    35.90,
-    NULL,
-    'bone_streetwear_azul.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
-);
-
--- BONÉ 3
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Boné Streetwear Verde',
-    'Boné verde estilo streetwear com design moderno e casual. Combina com diferentes estilos e pode ser usado no dia a dia.',
-    35.90,
-    NULL,
-    'bone_streetwear_verde.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
-);
-
--- BONÉ 4
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Boné Streetwear Amarelo',
-    'Boné amarelo estilo streetwear com visual jovem, moderno e marcante. Ideal para completar looks urbanos e personalizados.',
-    35.90,
-    NULL,
-    'bone_streetwear_amarelo.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
-);
-
--- BONÉ 5
-INSERT INTO produtos
-(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES
-(
-    'Boné SUA PACK Personalizado',
-    'Boné personalizado da SUA PACK com estilo urbano e moderno. Uma opção versátil para completar seu visual e combinar com seus acessórios.',
-    35.90,
-    NULL,
-    'bone_sua_pack.jpg',
-    5,
-    0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
-);
--- ============================================
--- CADASTRO DAS 2 PULSEIRAS
--- ============================================
+-- ============================================================
+-- 2. PRODUTOS: MOCHILAS
+-- 7 produtos | 5 unidades cada | sem promoção
+-- ============================================================
 
 INSERT INTO produtos
 (
@@ -303,12 +34,441 @@ INSERT INTO produtos
     em_promocao,
     id_categoria
 )
-VALUES
+SELECT
+    'Bolsa Gótica',
+    'Bolsa compacta com estilo gótico e urbano, perfeita para completar looks mais marcantes. Design versátil para levar seus itens essenciais no dia a dia.',
+    89.90,
+    NULL,
+    'bolsa_gotica.png',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Mochilas'
 
--- ============================================
--- 1. PULSEIRA ESTILIZADA ROSA
--- ============================================
+UNION ALL
+
+SELECT
+    'Mochila Gótica',
+    'Mochila com visual gótico e urbano, ideal para quem gosta de acessórios diferentes e cheios de personalidade. Espaçosa para acompanhar a rotina de estudos e passeios.',
+    109.90,
+    NULL,
+    'mochila_gotica.png',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Mochila Personalizável',
+    'Mochila criada para você deixar do seu jeito. Combine acessórios, pins e detalhes personalizados para criar uma peça única com a sua identidade.',
+    99.90,
+    NULL,
+    'mochila_personalizavel.png',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Mochila Dreamy',
+    'Mochila com estilo moderno e visual delicado, trazendo uma vibe criativa para o dia a dia. Uma opção prática para estudos, passeios e rolês.',
+    114.90,
+    NULL,
+    'mochila_dreamy.jpeg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Mochila Custom Style',
+    'Modelo inspirado no estilo streetwear, com visual moderno e versátil. Perfeita para quem quer praticidade sem abrir mão da personalidade.',
+    104.90,
+    NULL,
+    'mochila_custom_style.jpeg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Mochila Azul Aqua',
+    'Mochila em uma estética azul aqua, com visual moderno e descontraído. Ideal para compor looks coloridos e levar seus itens para a escola ou passeios.',
+    94.90,
+    NULL,
+    'mochila_azul_aqua.png',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Mochilas'
+
+UNION ALL
+
+SELECT
+    'Bolsa Urban',
+    'Bolsa compacta com inspiração urbana, feita para acompanhar diferentes momentos do dia. Prática, estilosa e fácil de combinar.',
+    84.90,
+    NULL,
+    'bolsa_urban.jpeg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Mochilas';
+
+
+-- ============================================================
+-- 3. CATEGORIA: ADESIVOS
+-- ============================================================
+
+INSERT INTO categorias (nome)
+SELECT 'Adesivos'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM categorias
+    WHERE nome = 'Adesivos'
+);
+
+
+-- ============================================================
+-- 4. PRODUTOS: ADESIVOS
+-- 4 packs | R$ 18,90 | 5 unidades cada | sem promoção
+-- ============================================================
+
+INSERT INTO produtos
 (
+    nome,
+    descricao,
+    preco,
+    preco_promocional,
+    imagem,
+    estoque,
+    em_promocao,
+    id_categoria
+)
+SELECT
+    'Pack SUA PACK',
+    'Pack de adesivos exclusivos da SUA PACK com estética urbana, moderna e cheia de atitude. Ideal para personalizar cadernos, notebooks, garrafas, capas e outros objetos.',
+    18.90,
+    NULL,
+    'adesivo_pack_1.png',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Adesivos'
+
+UNION ALL
+
+SELECT
+    'Pack Girl Power',
+    'Pack de adesivos exclusivos com frases e elementos em rosa, preto e branco, perfeito para personalizar seus objetos e expressar sua personalidade.',
+    18.90,
+    NULL,
+    'adesivo_pack_2.png',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Adesivos'
+
+UNION ALL
+
+SELECT
+    'Pack Street Blue',
+    'Pack de adesivos com estética streetwear em azul, preto e branco, com elementos urbanos e visual marcante.',
+    18.90,
+    NULL,
+    'adesivo_pack_3.png',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Adesivos'
+
+UNION ALL
+
+SELECT
+    'Pack Skull Style',
+    'Pack de adesivos com estética dark e urbana, trazendo elementos de caveira e identidade street para quem gosta de um visual mais ousado.',
+    18.90,
+    NULL,
+    'adesivo_pack_4.png',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Adesivos';
+
+
+-- ============================================================
+-- 5. CATEGORIA: CHAVEIROS
+-- ============================================================
+
+INSERT INTO categorias (nome)
+SELECT 'Chaveiros'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM categorias
+    WHERE nome = 'Chaveiros'
+);
+
+
+-- ============================================================
+-- 6. PRODUTOS: CHAVEIROS
+-- 5 produtos | R$ 21,90 | 5 unidades cada | sem promoção
+-- ============================================================
+
+INSERT INTO produtos
+(
+    nome,
+    descricao,
+    preco,
+    preco_promocional,
+    imagem,
+    estoque,
+    em_promocao,
+    id_categoria
+)
+SELECT
+    'Chaveiro Colorido SUA PACK',
+    'Chaveiro colorido personalizado com estrelas, flores, corações e detalhes em amarelo e verde. Ideal para mochilas, bolsas, estojos e chaves.',
+    21.90,
+    NULL,
+    'chaveiro_colorido.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Chaveiros'
+
+UNION ALL
+
+SELECT
+    'Chaveiro Cinza SUA PACK',
+    'Chaveiro cinza personalizado com estrelas, smiley, raio e detalhes urbanos. Perfeito para mochilas, bolsas, estojos e chaves.',
+    21.90,
+    NULL,
+    'chaveiro_cinza.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Chaveiros'
+
+UNION ALL
+
+SELECT
+    'Chaveiro Preto e Azul SUA PACK',
+    'Chaveiro preto e azul com estilo urbano, detalhes em azul neon, estrelas, raio e elementos personalizados. Ideal para mochilas, bolsas e chaves.',
+    21.90,
+    NULL,
+    'chaveiro_preto_azul.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Chaveiros'
+
+UNION ALL
+
+SELECT
+    'Chaveiro Branco e Verde SUA PACK',
+    'Chaveiro branco e verde personalizado com detalhes de coroa e estilo minimalista. Uma opção simples e moderna para mochilas, bolsas e chaves.',
+    21.90,
+    NULL,
+    'chaveiro_branco_verde.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Chaveiros'
+
+UNION ALL
+
+SELECT
+    'Chaveiro de Cachorro Personalizado',
+    'Chaveiro de cachorro personalizado com desenho de cachorro, patinhas e espaço para nome. Ideal para quem ama cachorro e quer levar seu pet sempre com você.',
+    21.90,
+    NULL,
+    'chaveiro_cachorro.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Chaveiros';
+
+
+-- ============================================================
+-- 7. CATEGORIA: BONÉS
+-- ============================================================
+
+INSERT INTO categorias (nome)
+SELECT 'Bonés'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM categorias
+    WHERE nome = 'Bonés'
+);
+
+
+-- ============================================================
+-- 8. PRODUTOS: BONÉS
+-- 7 produtos | R$ 35,90 | 5 unidades cada | sem promoção
+-- ============================================================
+
+INSERT INTO produtos
+(
+    nome,
+    descricao,
+    preco,
+    preco_promocional,
+    imagem,
+    estoque,
+    em_promocao,
+    id_categoria
+)
+SELECT
+    'Boné Streetwear Preto',
+    'Boné preto estilo streetwear com visual urbano e moderno. Ideal para looks casuais e para combinar com mochilas e acessórios.',
+    35.90,
+    NULL,
+    'bone_streetwear_preto.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Bonés'
+
+UNION ALL
+
+SELECT
+    'Boné Streetwear Azul',
+    'Boné azul estilo streetwear com visual moderno e urbano. Ideal para quem gosta de acessórios coloridos e estilosos.',
+    35.90,
+    NULL,
+    'bone_streetwear_azul.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Bonés'
+
+UNION ALL
+
+SELECT
+    'Boné Streetwear Verde',
+    'Boné verde estilo streetwear com design moderno e casual. Perfeito para completar looks urbanos do dia a dia.',
+    35.90,
+    NULL,
+    'bone_streetwear_verde.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Bonés'
+
+UNION ALL
+
+SELECT
+    'Boné Streetwear Amarelo',
+    'Boné amarelo estilo streetwear com visual jovem e marcante. Ideal para quem gosta de acessórios coloridos e diferentes.',
+    35.90,
+    NULL,
+    'bone_streetwear_amarelo.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Bonés'
+
+UNION ALL
+
+SELECT
+    'Boné Streetwear Branco',
+    'Boné branco estilo streetwear com visual clean, moderno e versátil. Combina facilmente com diferentes roupas e acessórios.',
+    35.90,
+    NULL,
+    'bone_streetwear_branco.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Bonés'
+
+UNION ALL
+
+SELECT
+    'Boné Preto e Azul SUA PACK',
+    'Boné preto e azul com estilo streetwear e detalhes urbanos. Ideal para quem procura um acessório moderno e personalizado.',
+    35.90,
+    NULL,
+    'bone_preto_azul.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Bonés'
+
+UNION ALL
+
+SELECT
+    'Boné SUA PACK Personalizado',
+    'Boné personalizado da SUA PACK com estilo urbano e moderno. Ideal para combinar com mochilas, chaveiros e outros acessórios.',
+    35.90,
+    NULL,
+    'bone_sua_pack.jpg',
+    5,
+    0,
+    id_categoria
+FROM categorias
+WHERE nome = 'Bonés';
+
+
+-- ============================================================
+-- 9. CATEGORIA: PULSEIRAS
+-- ============================================================
+
+INSERT INTO categorias (nome)
+SELECT 'Pulseiras'
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM categorias
+    WHERE nome = 'Pulseiras'
+);
+
+
+-- ============================================================
+-- 10. PRODUTOS: PULSEIRAS
+-- 2 produtos | R$ 20,00 | 5 unidades cada | sem promoção
+-- ============================================================
+
+INSERT INTO produtos
+(
+    nome,
+    descricao,
+    preco,
+    preco_promocional,
+    imagem,
+    estoque,
+    em_promocao,
+    id_categoria
+)
+SELECT
     'Pulseira Estilizada Rosa',
     'Pulseira estilizada rosa com pingentes da SUA PACK, estrela, coração e uma frase. Possui detalhes em rosa e preto e um visual moderno inspirado na cultura pop. Ideal para complementar seu estilo e combinar com outros acessórios.',
     20.00,
@@ -316,19 +476,25 @@ VALUES
     'pulseira_estilizada_rosa.jpg',
     5,
     0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Pulseiras' LIMIT 1)
-),
+    id_categoria
+FROM categorias
+WHERE nome = 'Pulseiras'
 
--- ============================================
--- 2. PULSEIRA ESTILIZADA PRETA K-POP
--- ============================================
-(
+UNION ALL
+
+SELECT
     'Pulseira Estilizada Preta K-Pop',
-    'Pulseira estilizada preta com temática K-Pop, detalhes em rosa, pingentes de estrela e elementos inspirados na cultura pop. Ideal para fãs de K-Pop e para complementar looks modernos.',
+    'Pulseira estilizada preta com temática K-Pop, detalhes em rosa, pingente de estrela e elementos inspirados na cultura pop. Ideal para fãs de K-Pop e para complementar looks modernos.',
     20.00,
     NULL,
     'pulseira_estilizada_preta.jpg',
     5,
     0,
-    (SELECT id_categoria FROM categorias WHERE nome = 'Pulseiras' LIMIT 1)
-);
+    id_categoria
+FROM categorias
+WHERE nome = 'Pulseiras';
+
+
+-- ============================================================
+-- FIM DO CADASTRO
+-- ============================================================

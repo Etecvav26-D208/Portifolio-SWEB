@@ -1,1 +1,1 @@
-## Pasta para as iamgens dos produtos
+## Pasta para as imgens dos produtos

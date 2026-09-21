@@ -1,3 +1,4 @@
+
 <?php
 
 include("conexao.php");
@@ -11,12 +12,9 @@ if (
     !isset($_GET["id"]) ||
     !is_numeric($_GET["id"])
 ) {
-
     header("Location: produtos.php");
-
     exit;
 }
-
 
 $id_produto = intval($_GET["id"]);
 
@@ -30,13 +28,10 @@ $sql = "
         produtos.*,
         categorias.nome AS nome_categoria
     FROM produtos
-
     LEFT JOIN categorias
         ON produtos.id_categoria = categorias.id_categoria
-
     WHERE produtos.id_produto = $id_produto
 ";
-
 
 $resultado = mysqli_query(
     $conexao,
@@ -52,16 +47,12 @@ if (
     !$resultado ||
     mysqli_num_rows($resultado) == 0
 ) {
-
     header("Location: produtos.php");
-
     exit;
 }
 
 
-$produto = mysqli_fetch_assoc(
-    $resultado
-);
+$produto = mysqli_fetch_assoc($resultado);
 
 
 /* =========================
@@ -70,7 +61,8 @@ $produto = mysqli_fetch_assoc(
 
 $em_promocao =
     $produto["em_promocao"] == 1 &&
-    !empty($produto["preco_promocional"]);
+    !empty($produto["preco_promocional"]) &&
+    $produto["preco_promocional"] > 0;
 
 
 if ($em_promocao) {
@@ -116,12 +108,24 @@ $estoque = intval(
         href="style.css"
     >
 
-
     <style>
 
-        /* =========================
+        /* ========================================
            PÁGINA DO PRODUTO
-        ========================= */
+        ======================================== */
+
+        .pagina-produto {
+
+            min-height: 100vh;
+
+            background-color: #efefe9;
+
+            color: #000;
+
+            padding: 60px 6% 100px;
+
+        }
+
 
         .produto-detalhe {
 
@@ -129,42 +133,42 @@ $estoque = intval(
 
             margin: 0 auto;
 
-            padding: 60px 25px 80px;
-
         }
 
+
+        /* VOLTAR */
 
         .voltar-produtos {
 
             display: inline-block;
 
-            margin-bottom: 35px;
+            margin-bottom: 40px;
 
-            color: #111;
+            color: #000;
 
-            text-decoration: none;
+            font-size: 13px;
 
             font-weight: bold;
 
-            font-size: 15px;
+            text-transform: uppercase;
 
         }
 
 
         .voltar-produtos:hover {
 
-            text-decoration: underline;
+            color: #d6007f;
 
         }
 
+
+        /* CONTAINER */
 
         .produto-container {
 
             display: grid;
 
-            grid-template-columns:
-                1fr
-                1fr;
+            grid-template-columns: 1fr 1fr;
 
             gap: 60px;
 
@@ -173,17 +177,17 @@ $estoque = intval(
         }
 
 
-        /* =========================
+        /* ========================================
            IMAGEM
-        ========================= */
+        ======================================== */
 
-        .produto-imagem {
+        .produto-detalhe-imagem {
 
             width: 100%;
 
-            min-height: 500px;
+            min-height: 550px;
 
-            background: #f5f5f5;
+            background-color: #fff;
 
             display: flex;
 
@@ -196,11 +200,11 @@ $estoque = intval(
         }
 
 
-        .produto-imagem img {
+        .produto-detalhe-imagem img {
 
             width: 100%;
 
-            height: 500px;
+            height: 550px;
 
             object-fit: contain;
 
@@ -209,69 +213,88 @@ $estoque = intval(
         }
 
 
-        /* =========================
-           INFORMAÇÕES
-        ========================= */
+        .imagem-indisponivel {
 
-        .produto-info {
+            color: #777;
+
+            font-size: 14px;
+
+        }
+
+
+        /* ========================================
+           INFORMAÇÕES
+        ======================================== */
+
+        .produto-detalhe-info {
 
             padding: 10px 0;
 
         }
 
 
-        .produto-categoria {
-
-            font-size: 13px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 2px;
+        .produto-detalhe-categoria {
 
             color: #777;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
 
             margin-bottom: 15px;
 
         }
 
 
-        .produto-info h1 {
+        .produto-detalhe-info h1 {
 
-            font-size: clamp(35px, 5vw, 60px);
+            font-family: Impact, "Arial Black", sans-serif;
 
-            line-height: 0.95;
+            font-size: clamp(45px, 6vw, 80px);
 
-            margin: 0 0 25px;
+            line-height: 0.9;
 
             text-transform: uppercase;
 
-        }
-
-
-        .produto-descricao {
-
-            font-size: 17px;
-
-            line-height: 1.7;
-
-            color: #444;
-
-            margin-bottom: 30px;
+            margin-bottom: 25px;
 
         }
 
 
-        /* =========================
-           PREÇO
-        ========================= */
+        /* ========================================
+           PROMOÇÃO
+        ======================================== */
 
-        .preco-antigo {
+        .tag-promocao {
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            padding: 8px 12px;
+
+            background-color: #d6007f;
+
+            color: #fff;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+        }
+
+
+        .preco-antigo-produto {
 
             color: #888;
 
-            text-decoration: line-through;
+            font-size: 16px;
 
-            font-size: 17px;
+            text-decoration: line-through;
 
             margin-bottom: 5px;
 
@@ -280,7 +303,9 @@ $estoque = intval(
 
         .preco-produto {
 
-            font-size: 34px;
+            color: #000;
+
+            font-size: 35px;
 
             font-weight: bold;
 
@@ -289,43 +314,50 @@ $estoque = intval(
         }
 
 
-        .preco-promocional {
+        .preco-produto.promocional {
 
             color: #d6007f;
 
         }
 
 
-        .tag-promocao {
+        /* ========================================
+           DESCRIÇÃO
+        ======================================== */
 
-            display: inline-block;
+        .produto-descricao {
 
-            background: #d6007f;
+            max-width: 600px;
 
-            color: white;
+            color: #444;
 
-            padding: 7px 12px;
+            font-size: 15px;
 
-            font-size: 12px;
+            line-height: 1.8;
 
-            font-weight: bold;
-
-            margin-bottom: 15px;
+            margin-bottom: 25px;
 
         }
 
 
-        /* =========================
+        /* ========================================
            ESTOQUE
-        ========================= */
+        ======================================== */
 
         .estoque {
-
-            font-size: 14px;
 
             margin-bottom: 25px;
 
             color: #555;
+
+            font-size: 14px;
+
+        }
+
+
+        .estoque strong {
+
+            color: #000;
 
         }
 
@@ -339,9 +371,9 @@ $estoque = intval(
         }
 
 
-        /* =========================
+        /* ========================================
            QUANTIDADE
-        ========================= */
+        ======================================== */
 
         .quantidade-area {
 
@@ -354,9 +386,11 @@ $estoque = intval(
 
             display: block;
 
-            font-weight: bold;
-
             margin-bottom: 8px;
+
+            font-size: 13px;
+
+            font-weight: bold;
 
         }
 
@@ -365,18 +399,20 @@ $estoque = intval(
 
             width: 100px;
 
-            padding: 13px;
+            padding: 12px;
 
             border: 1px solid #ccc;
+
+            background-color: #fff;
 
             font-size: 16px;
 
         }
 
 
-        /* =========================
-           BOTÃO
-        ========================= */
+        /* ========================================
+           BOTÃO CARRINHO
+        ======================================== */
 
         .btn-carrinho {
 
@@ -386,40 +422,40 @@ $estoque = intval(
 
             border: none;
 
-            background: #111;
+            background-color: #000;
 
-            color: white;
+            color: #fff;
 
-            font-size: 16px;
+            font-size: 14px;
 
             font-weight: bold;
 
             cursor: pointer;
 
-            transition: 0.2s;
+            transition: 0.3s;
 
         }
 
 
         .btn-carrinho:hover {
 
-            background: #d6007f;
+            background-color: #d6007f;
 
         }
 
 
         .btn-carrinho:disabled {
 
-            background: #999;
+            background-color: #999;
 
             cursor: not-allowed;
 
         }
 
 
-        /* =========================
+        /* ========================================
            AVISO
-        ========================= */
+        ======================================== */
 
         .aviso-compra {
 
@@ -427,20 +463,29 @@ $estoque = intval(
 
             padding: 15px;
 
-            background: #f5f5f5;
+            background-color: #fff;
 
-            font-size: 14px;
+            color: #555;
 
-            line-height: 1.5;
+            font-size: 13px;
+
+            line-height: 1.6;
 
         }
 
 
-        /* =========================
+        /* ========================================
            RESPONSIVO
-        ========================= */
+        ======================================== */
 
         @media (max-width: 800px) {
+
+            .pagina-produto {
+
+                padding: 40px 20px 70px;
+
+            }
+
 
             .produto-container {
 
@@ -451,16 +496,55 @@ $estoque = intval(
             }
 
 
-            .produto-imagem {
+            .produto-detalhe-imagem {
 
-                min-height: 350px;
+                min-height: 400px;
 
             }
 
 
-            .produto-imagem img {
+            .produto-detalhe-imagem img {
 
-                height: 350px;
+                height: 400px;
+
+            }
+
+
+            .produto-detalhe-info h1 {
+
+                font-size: 55px;
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .produto-detalhe-imagem {
+
+                min-height: 320px;
+
+            }
+
+
+            .produto-detalhe-imagem img {
+
+                height: 320px;
+
+            }
+
+
+            .produto-detalhe-info h1 {
+
+                font-size: 45px;
+
+            }
+
+
+            .preco-produto {
+
+                font-size: 30px;
 
             }
 
@@ -474,94 +558,124 @@ $estoque = intval(
 <body>
 
 
-<main class="produto-detalhe">
+<main class="pagina-produto">
+
+    <div class="produto-detalhe">
 
 
-    <!-- VOLTAR -->
+        <!-- VOLTAR -->
 
-    <a
-        href="produtos.php"
-        class="voltar-produtos"
-    >
-
-        ← VOLTAR PARA PRODUTOS
-
-    </a>
+        <a
+            href="produtos.php"
+            class="voltar-produtos"
+        >
+            ← VOLTAR PARA PRODUTOS
+        </a>
 
 
-    <div class="produto-container">
+        <div class="produto-container">
 
 
-        <!-- =========================
-             IMAGEM
-        ========================== -->
+            <!-- ========================================
+                 IMAGEM DO PRODUTO
+            ======================================== -->
 
-        <div class="produto-imagem">
+            <div class="produto-detalhe-imagem">
 
-            <?php if (!empty($produto["imagem"])): ?>
+                <?php if (!empty($produto["imagem"])): ?>
 
-                <img
-                    src="img/<?= htmlspecialchars($produto["imagem"]) ?>"
-                    alt="<?= htmlspecialchars($produto["nome"]) ?>"
+                    <img
+                        src="img/<?= htmlspecialchars($produto["imagem"]) ?>"
+                        alt="<?= htmlspecialchars($produto["nome"]) ?>"
+                    >
+
+                <?php else: ?>
+
+                    <p class="imagem-indisponivel">
+                        Imagem não disponível
+                    </p>
+
+                <?php endif; ?>
+
+            </div>
+
+
+            <!-- ========================================
+                 INFORMAÇÕES
+            ======================================== -->
+
+            <div class="produto-detalhe-info">
+
+
+                <!-- CATEGORIA -->
+
+                <?php if (!empty($produto["nome_categoria"])): ?>
+
+                    <div class="produto-detalhe-categoria">
+
+                        <?= htmlspecialchars(
+                            $produto["nome_categoria"]
+                        ) ?>
+
+                    </div>
+
+                <?php endif; ?>
+
+
+                <!-- NOME -->
+
+                <h1>
+
+                    <?= htmlspecialchars(
+                        $produto["nome"]
+                    ) ?>
+
+                </h1>
+
+
+                <!-- PROMOÇÃO -->
+
+                <?php if ($em_promocao): ?>
+
+                    <span class="tag-promocao">
+
+                        PROMOÇÃO
+
+                    </span>
+
+                <?php endif; ?>
+
+
+                <!-- PREÇO ANTIGO -->
+
+                <?php if ($em_promocao): ?>
+
+                    <div class="preco-antigo-produto">
+
+                        R$
+
+                        <?= number_format(
+                            $produto["preco"],
+                            2,
+                            ",",
+                            "."
+                        ) ?>
+
+                    </div>
+
+                <?php endif; ?>
+
+
+                <!-- PREÇO ATUAL -->
+
+                <div
+                    class="preco-produto <?= $em_promocao ? 'promocional' : '' ?>"
                 >
-
-            <?php else: ?>
-
-                <p>
-                    Imagem não disponível
-                </p>
-
-            <?php endif; ?>
-
-        </div>
-
-
-        <!-- =========================
-             INFORMAÇÕES
-        ========================== -->
-
-        <div class="produto-info">
-
-
-            <?php if (!empty($produto["nome_categoria"])): ?>
-
-                <div class="produto-categoria">
-
-                    <?= htmlspecialchars($produto["nome_categoria"]) ?>
-
-                </div>
-
-            <?php endif; ?>
-
-
-            <h1>
-
-                <?= htmlspecialchars($produto["nome"]) ?>
-
-            </h1>
-
-
-            <?php if ($em_promocao): ?>
-
-                <span class="tag-promocao">
-
-                    PROMOÇÃO
-
-                </span>
-
-            <?php endif; ?>
-
-
-            <!-- PREÇO -->
-
-            <?php if ($em_promocao): ?>
-
-                <div class="preco-antigo">
 
                     R$
 
                     <?= number_format(
-                        $produto["preco"],
+                        $preco,
                         2,
                         ",",
                         "."
@@ -569,147 +683,132 @@ $estoque = intval(
 
                 </div>
 
-            <?php endif; ?>
 
+                <!-- DESCRIÇÃO -->
 
-            <div
-                class="
-                    preco-produto
-                    <?= $em_promocao ? 'preco-promocional' : '' ?>
-                "
-            >
+                <?php if (!empty($produto["descricao"])): ?>
 
-                R$
+                    <div class="produto-descricao">
 
-                <?= number_format(
-                    $preco,
-                    2,
-                    ",",
-                    "."
-                ) ?>
-
-            </div>
-
-
-            <!-- DESCRIÇÃO -->
-
-            <?php if (!empty($produto["descricao"])): ?>
-
-                <div class="produto-descricao">
-
-                    <?= nl2br(
-                        htmlspecialchars(
-                            $produto["descricao"]
-                        )
-                    ) ?>
-
-                </div>
-
-            <?php endif; ?>
-
-
-            <!-- ESTOQUE -->
-
-            <?php if ($estoque > 0): ?>
-
-                <div class="estoque">
-
-                    Disponível em estoque:
-                    <strong>
-                        <?= $estoque ?>
-                    </strong>
-
-                </div>
-
-            <?php else: ?>
-
-                <div class="estoque sem-estoque">
-
-                    Produto sem estoque.
-
-                </div>
-
-            <?php endif; ?>
-
-
-            <!-- =========================
-                 FORMULÁRIO DO CARRINHO
-            ========================== -->
-
-            <form
-                action="carrinho.php"
-                method="POST"
-            >
-
-
-                <input
-                    type="hidden"
-                    name="id_produto"
-                    value="<?= $produto["id_produto"] ?>"
-                >
-
-
-                <?php if ($estoque > 0): ?>
-
-                    <div class="quantidade-area">
-
-                        <label for="quantidade">
-
-                            Quantidade:
-
-                        </label>
-
-
-                        <input
-                            type="number"
-                            id="quantidade"
-                            name="quantidade"
-                            value="1"
-                            min="1"
-                            max="<?= $estoque ?>"
-                            required
-                        >
+                        <?= nl2br(
+                            htmlspecialchars(
+                                $produto["descricao"]
+                            )
+                        ) ?>
 
                     </div>
-
-
-                    <button
-                        type="submit"
-                        name="adicionar"
-                        class="btn-carrinho"
-                    >
-
-                        🛒 ADICIONAR AO CARRINHO
-
-                    </button>
-
-
-                <?php else: ?>
-
-                    <button
-                        type="button"
-                        class="btn-carrinho"
-                        disabled
-                    >
-
-                        PRODUTO ESGOTADO
-
-                    </button>
 
                 <?php endif; ?>
 
 
-            </form>
+                <!-- ESTOQUE -->
+
+                <?php if ($estoque > 0): ?>
+
+                    <div class="estoque">
+
+                        Disponível em estoque:
+
+                        <strong>
+                            <?= $estoque ?>
+                        </strong>
+
+                    </div>
+
+                <?php else: ?>
+
+                    <div class="estoque sem-estoque">
+
+                        Produto sem estoque.
+
+                    </div>
+
+                <?php endif; ?>
 
 
-            <div class="aviso-compra">
+                <!-- ========================================
+                     FORMULÁRIO
+                ======================================== -->
 
-                💗 Depois de adicionar o produto,
-                você poderá revisar seu pedido no carrinho
-                antes de finalizar a compra.
+                <form
+                    action="carrinho.php"
+                    method="POST"
+                >
+
+                    <input
+                        type="hidden"
+                        name="id_produto"
+                        value="<?= $produto["id_produto"] ?>"
+                    >
+
+
+                    <?php if ($estoque > 0): ?>
+
+                        <!-- QUANTIDADE -->
+
+                        <div class="quantidade-area">
+
+                            <label for="quantidade">
+
+                                Quantidade:
+
+                            </label>
+
+                            <input
+                                type="number"
+                                id="quantidade"
+                                name="quantidade"
+                                value="1"
+                                min="1"
+                                max="<?= $estoque ?>"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- BOTÃO -->
+
+                        <button
+                            type="submit"
+                            name="adicionar"
+                            class="btn-carrinho"
+                        >
+
+                            🛒 ADICIONAR AO CARRINHO
+
+                        </button>
+
+
+                    <?php else: ?>
+
+                        <button
+                            type="button"
+                            class="btn-carrinho"
+                            disabled
+                        >
+
+                            PRODUTO ESGOTADO
+
+                        </button>
+
+                    <?php endif; ?>
+
+                </form>
+
+
+                <!-- AVISO -->
+
+                <div class="aviso-compra">
+
+                    💗 Depois de adicionar o produto,
+                    você poderá revisar seu pedido no carrinho
+                    antes de finalizar a compra.
+
+                </div>
+
 
             </div>
-
 
         </div>
 

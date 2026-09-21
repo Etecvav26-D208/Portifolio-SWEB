@@ -118,6 +118,8 @@ SELECT
 FROM categorias WHERE nome = 'Adesivos';
 USE suapack;
 
+USE suapack;
+
 -- Garante que a categoria Chaveiros exista
 INSERT INTO categorias (nome)
 SELECT 'Chaveiros'
@@ -130,27 +132,29 @@ WHERE NOT EXISTS (
 -- CHAVEIRO 1
 INSERT INTO produtos
 (nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES (
-    'Chaveiro Colorido Good Vibes',
-    'Chaveiro colorido personalizado com estrelas, flores, coração, smiley e detalhes em amarelo e verde. Ideal para decorar mochilas, bolsas e chaves com uma vibe divertida e única.',
-    29.90,
-    24.90,
-    'chaveiro-colorido-good-vibes.jpeg',
-    15,
-    1,
+VALUES
+(
+    'Chaveiro Colorido SUA PACK',
+    'Chaveiro colorido personalizado com estrelas, flores, corações e detalhes em amarelo e verde. Ideal para mochilas, bolsas, estojos e chaves.',
+    21.90,
+    NULL,
+    'chaveiro_colorido.jpg',
+    5,
+    0,
     (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
 );
 
 -- CHAVEIRO 2
 INSERT INTO produtos
 (nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES (
-    'Chaveiro Urbano Your Style',
-    'Chaveiro urbano personalizado em tons de cinza, com estrelas, smiley, corrente e detalhes modernos. Perfeito para mochilas, bolsas e acessórios no estilo streetwear.',
-    29.90,
+VALUES
+(
+    'Chaveiro Cinza SUA PACK',
+    'Chaveiro cinza personalizado com estrelas, smiley, raio e detalhes urbanos. Perfeito para mochilas, bolsas, estojos e chaves.',
+    21.90,
     NULL,
-    'chaveiro-urbano-your-style.jpeg',
-    12,
+    'chaveiro_cinza.jpg',
+    5,
     0,
     (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
 );
@@ -158,27 +162,29 @@ VALUES (
 -- CHAVEIRO 3
 INSERT INTO produtos
 (nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES (
-    'Chaveiro Street Azul',
-    'Chaveiro azul e preto no estilo streetwear, com estrela, raio, smiley, corrente e detalhes personalizados. Ideal para mochilas, bolsas e acessórios urbanos.',
-    32.90,
-    27.90,
-    'chaveiro-street-azul.jpeg',
-    10,
-    1,
+VALUES
+(
+    'Chaveiro Preto e Azul SUA PACK',
+    'Chaveiro preto e azul com estilo urbano, detalhes em azul neon, estrelas, raio e elementos personalizados. Ideal para mochilas, bolsas e chaves.',
+    21.90,
+    NULL,
+    'chaveiro_preto_azul.jpg',
+    5,
+    0,
     (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
 );
 
 -- CHAVEIRO 4
 INSERT INTO produtos
 (nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES (
-    'Chaveiro Minimalista Verde',
-    'Chaveiro verde e branco com estilo minimalista, cordão e detalhes personalizados. Uma opção simples e moderna para mochilas, bolsas e chaves.',
-    24.90,
+VALUES
+(
+    'Chaveiro Branco e Verde SUA PACK',
+    'Chaveiro branco e verde personalizado com detalhes de coroa e estilo minimalista. Uma opção simples e moderna para mochilas, bolsas e chaves.',
+    21.90,
     NULL,
-    'chaveiro-minimalista-verde.jpeg',
-    18,
+    'chaveiro_branco_verde.jpg',
+    5,
     0,
     (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
 );
@@ -186,19 +192,18 @@ VALUES (
 -- CHAVEIRO 5
 INSERT INTO produtos
 (nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
-VALUES (
-    'Chaveiro Cachorro Personalizado',
-    'Chaveiro de cachorro personalizado com desenho de cachorro, plaquinha com nome do pet, patinhas e detalhes delicados. Ideal para quem ama cachorro e quer levar seu pet sempre com você.',
-    34.90,
-    29.90,
-    'chaveiro-cachorro-personalizado.jpeg',
-    8,
-    1,
+VALUES
+(
+    'Chaveiro de Cachorro Personalizado',
+    'Chaveiro de cachorro personalizado com desenho de cachorro, patinhas e espaço com nome. Ideal para quem ama cachorro e quer levar seu pet sempre com você.',
+    21.90,
+    NULL,
+    'chaveiro_cachorro.jpg',
+    5,
+    0,
     (SELECT id_categoria FROM categorias WHERE nome = 'Chaveiros' LIMIT 1)
 );
--- ============================================
--- SUA PACK - CADASTRO DOS BONÉS
--- ============================================
+USE suapack;
 
 -- Garante que a categoria Bonés exista
 INSERT INTO categorias (nome)
@@ -209,105 +214,77 @@ WHERE NOT EXISTS (
     WHERE nome = 'Bonés'
 );
 
--- Pega o ID da categoria Bonés
-SET @id_categoria_bones = (
-    SELECT id_categoria
-    FROM categorias
-    WHERE nome = 'Bonés'
-    ORDER BY id_categoria ASC
-    LIMIT 1
+-- BONÉ 1
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+VALUES
+(
+    'Boné Streetwear Preto',
+    'Boné preto estilo streetwear com visual urbano e moderno. Ideal para combinar com mochilas, roupas e acessórios da SUA PACK.',
+    35.90,
+    NULL,
+    'bone_streetwear_preto.jpg',
+    5,
+    0,
+    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
 );
 
--- ============================================
--- CADASTRO DOS 7 BONÉS
--- ============================================
-
+-- BONÉ 2
 INSERT INTO produtos
-(
-    nome,
-    descricao,
-    preco,
-    preco_promocional,
-    imagem,
-    estoque,
-    em_promocao,
-    id_categoria
-)
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
 VALUES
-
 (
-    'Boné SUA PACK Preto',
-    'Boné preto com identidade urbana da SUA PACK, perfeito para completar looks streetwear e deixar o visual mais marcante.',
-    59.90,
+    'Boné Streetwear Azul',
+    'Boné azul estilo streetwear com visual moderno e urbano. Perfeito para quem gosta de acessórios coloridos e combinações diferentes.',
+    35.90,
     NULL,
-    'bone_preto.jpeg',
+    'bone_streetwear_azul.jpg',
     5,
     0,
-    @id_categoria_bones
-),
+    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
+);
 
+-- BONÉ 3
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+VALUES
 (
-    'Boné SUA PACK Azul',
-    'Boné azul e branco com detalhes da SUA PACK, trazendo uma combinação moderna e descontraída para o dia a dia.',
-    59.90,
+    'Boné Streetwear Verde',
+    'Boné verde estilo streetwear com design moderno e casual. Combina com diferentes estilos e pode ser usado no dia a dia.',
+    35.90,
     NULL,
-    'bone_azul.jpeg',
+    'bone_streetwear_verde.jpg',
     5,
     0,
-    @id_categoria_bones
-),
+    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
+);
 
+-- BONÉ 4
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+VALUES
 (
-    'Boné SUA PACK Amarelo',
-    'Boné amarelo com detalhes florais e identidade SUA PACK. Uma opção colorida para quem gosta de destacar o próprio estilo.',
-    64.90,
+    'Boné Streetwear Amarelo',
+    'Boné amarelo estilo streetwear com visual jovem, moderno e marcante. Ideal para completar looks urbanos e personalizados.',
+    35.90,
     NULL,
-    'bone_amarelo.jpeg',
+    'bone_streetwear_amarelo.jpg',
     5,
     0,
-    @id_categoria_bones
-),
+    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
+);
 
+-- BONÉ 5
+INSERT INTO produtos
+(nome, descricao, preco, preco_promocional, imagem, estoque, em_promocao, id_categoria)
+VALUES
 (
-    'Boné SUA PACK Vermelho',
-    'Boné vermelho com visual urbano, detalhes personalizados e acabamento inspirado no estilo streetwear.',
-    59.90,
+    'Boné SUA PACK Personalizado',
+    'Boné personalizado da SUA PACK com estilo urbano e moderno. Uma opção versátil para completar seu visual e combinar com seus acessórios.',
+    35.90,
     NULL,
-    'bone_vermelho.jpeg',
+    'bone_sua_pack.jpg',
     5,
     0,
-    @id_categoria_bones
-),
-
-(
-    'Boné SUA PACK Floral',
-    'Boné em tom amarelo com flores delicadas e detalhes personalizados. Ideal para criar uma composição mais criativa e diferente.',
-    64.90,
-    NULL,
-    'bone_floral.jpeg',
-    5,
-    0,
-    @id_categoria_bones
-),
-
-(
-    'Boné Gótico Feminino',
-    'Boné preto com estética gótica, detalhes em roxo e acessórios metálicos. Uma peça marcante para composições alternativas.',
-    79.90,
-    NULL,
-    'bone_feminino_gotico.png',
-    5,
-    0,
-    @id_categoria_bones
-),
-
-(
-    'Boné Gótico Masculino',
-    'Boné preto com detalhes góticos, correntes e elementos metálicos. Ideal para quem curte uma estética urbana e alternativa.',
-    79.90,
-    NULL,
-    'bone_masculino_gotico.png',
-    5,
-    0,
-    @id_categoria_bones
+    (SELECT id_categoria FROM categorias WHERE nome = 'Bonés' LIMIT 1)
 );

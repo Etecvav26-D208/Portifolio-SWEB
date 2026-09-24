@@ -20,92 +20,98 @@
 
 ## 🌐 SITE / INDEX
 
-- [ ] Ligar `index.php` ao `includes/produtos.php`
-- [ ] Ligar `index.php` ao `includes/categorias.php`
-- [ ] Ligar `index.php` ao `includes/promocoes.php`
-- [ ] Fazer os produtos aparecerem automaticamente na página
-- [ ] Fazer as categorias aparecerem automaticamente
-- [ ] Fazer a área de promoções aparecer automaticamente
-- [ ] Fazer as imagens dos produtos aparecerem pelo banco
-- [ ] Substituir os produtos fixos do HTML pelos produtos do banco
+- [x] Ligar `index.php` ao `includes/produtos.php`
+- [x] Ligar `index.php` ao `includes/categorias.php`
+- [x] Ligar `index.php` ao `includes/promocoes.php`
+- [x] Fazer os produtos aparecerem automaticamente na página
+- [x] Fazer as categorias aparecerem automaticamente
+- [x] Fazer a área de promoções aparecer automaticamente
+- [x] Fazer as imagens dos produtos aparecerem pelo banco
+- [x] Substituir os produtos fixos do HTML pelos produtos do banco
 
 ## 🛍️ PRODUTOS
 
-- [ ] Criar página individual do produto
-- [ ] Mostrar imagem do produto
-- [ ] Mostrar nome
-- [ ] Mostrar descrição
-- [ ] Mostrar preço
-- [ ] Mostrar promoção
-- [ ] Mostrar estoque
-- [ ] Criar botão de adicionar ao carrinho
+- [x] Criar página individual do produto
+- [x] Mostrar imagem do produto
+- [x] Mostrar nome
+- [x] Mostrar descrição
+- [x] Mostrar preço
+- [x] Mostrar promoção
+- [x] Mostrar estoque
+- [x] Criar botão de adicionar ao carrinho
 
 ## 🛒 CARRINHO
 
-- [ ] Criar carrinho
-- [ ] Adicionar produto ao carrinho
-- [ ] Mostrar quantidade
-- [ ] Alterar quantidade
-- [ ] Remover produto
-- [ ] Calcular subtotal
-- [ ] Calcular valor total
+- [x] Criar carrinho
+- [x] Adicionar produto ao carrinho
+- [x] Mostrar quantidade
+- [x] Alterar quantidade
+- [x] Remover produto
+- [x] Calcular subtotal
+- [x] Calcular valor total
 
 ## 💳 FINALIZAÇÃO DA COMPRA
 
-- [ ] Criar página de checkout
-- [ ] Criar formulário de endereço
-- [ ] Criar escolha da forma de pagamento
-- [ ] Mostrar resumo da compra
-- [ ] Finalizar pedido
-- [ ] Salvar pedido no banco
-- [ ] Salvar itens do pedido no banco
+- [x] Criar página de checkout
+- [x] Criar formulário de endereço
+- [x] Criar escolha da forma de pagamento
+- [x] Mostrar resumo da compra
+- [x] Finalizar pedido
+- [x] Salvar pedido no banco
+- [x] Salvar itens do pedido no banco
 
 ## 🖼️ IMAGENS
 
-- [ ] Organizar imagens dentro de `img/`
-- [ ] Definir nome de cada imagem
-- [ ] Cadastrar os nomes das imagens nos produtos
-- [ ] Conferir caminhos das imagens
-- [ ] Fazer as imagens aparecerem corretamente no site
+- [x] Organizar imagens dentro de `img/`
+- [x] Definir nome de cada imagem
+- [x] Cadastrar os nomes das imagens nos produtos
+- [x] Conferir caminhos das imagens
+- [x] Fazer as imagens aparecerem corretamente no site
 
 ## 🎨 VISUAL
 
-- [ ] Arrumar visual das páginas de cadastro
-- [ ] Arrumar visual das listas
-- [ ] Arrumar visual das páginas de edição
-- [ ] Arrumar visual da visualização de pedido
-- [ ] Deixar o painel administrativo com o estilo da SUA PACK
-- [ ] Conferir versão para celular
+- [x] Arrumar visual das páginas de cadastro
+- [x] Arrumar visual das listas
+- [x] Arrumar visual das páginas de edição
+- [x] Arrumar visual da visualização de pedido
+- [x] Deixar o painel administrativo com o estilo da SUA PACK
+- [x] Conferir versão para celular
 
 ## 🧪 TESTES
 
-- [ ] Testar banco no XAMPP
-- [ ] Testar conexão
-- [ ] Testar cadastro de categoria
-- [ ] Testar edição de categoria
-- [ ] Testar exclusão de categoria
-- [ ] Testar cadastro de produto
-- [ ] Testar edição de produto
-- [ ] Testar exclusão de produto
-- [ ] Testar cadastro de pedido
-- [ ] Testar edição de pedido
-- [ ] Testar exclusão de pedido
-- [ ] Testar visualização de pedido
-- [ ] Testar index
-- [ ] Testar imagens
-- [ ] Testar carrinho
-- [ ] Testar finalização da compra
+- [x] Testar banco no XAMPP
+- [x] Testar conexão
+- [x] Testar cadastro de categoria
+- [x] Testar edição de categoria
+- [x] Testar exclusão de categoria
+- [x] Testar cadastro de produto
+- [x] Testar edição de produto
+- [x] Testar exclusão de produto
+- [x] Testar cadastro de pedido
+- [x] Testar edição de pedido
+- [x] Testar exclusão de pedido
+- [x] Testar visualização de pedido
+- [x] Testar index
+- [x] Testar imagens
+- [x] Testar carrinho
+- [x] Testar finalização da compra
 
 ## 📁 ORGANIZAÇÃO FINAL
 
-- [ ] Mover `categorias` para `admin/categorias/`
-- [ ] Conferir todos os caminhos dos `include`
-- [ ] Conferir todos os links
-- [ ] Conferir nomes dos arquivos
-- [ ] Conferir se existem arquivos duplicados
-- [ ] Conferir estrutura final do GitHub
-- [ ] Fazer teste final completo
+- [x] Mover `categorias` para `admin/categorias/`
+- [x] Conferir todos os caminhos dos `include`
+- [x] Conferir todos os links
+- [x] Conferir nomes dos arquivos
+- [x] Conferir se existem arquivos duplicados
+- [x] Conferir estrutura final do GitHub
+- [x] Fazer teste final completo
 
+## 🔐 ACESSO ADMINISTRATIVO
 
-## Acesso administrativo
-A conta principal administrativa é mariaeduardaporodrigues@gmail.com. Pelo perfil dessa conta é possível criar outras contas de administrador.
+- [x] Conta principal administrativa: `mariaeduardaporodrigues@gmail.com`
+- [x] Permitir que a conta principal crie outras contas de administrador
+- [x] Controle de acesso às áreas administrativas
+
+## ✅ STATUS
+
+**100% concluído**

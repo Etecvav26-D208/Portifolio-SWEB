@@ -1,54 +1,25 @@
+
 # 📚 4º Bimestre — Sistemas Web
 
-Repositório destinado às atividades desenvolvidas durante o 4º bimestre do curso de Informática para Internet.
+Repositório destinado às atividades desenvolvidas durante o 4º bimestre do curso de Informática para Internet da ETEC Vasco Antônio Venchiarutti.
 
-## 🖨️ Atividade — Grafica_Gest | Gráfica VAV
+## 📑 Atividades desenvolvidas
 
-O **Grafica_Gest** é um sistema web de gestão interna desenvolvido para uma gráfica e papelaria escolar, inspirado na ETEC Vasco Antônio Venchiarutti.
+### 🖨️ Atividade 01 — Grafica_Gest | Gráfica VAV
 
-O projeto tem como objetivo centralizar informações, organizar as atividades da gráfica e facilitar o gerenciamento de produtos, vendas, estoque, funcionários e pedidos gráficos.
+Desenvolvimento de um sistema web de gestão interna para uma gráfica e papelaria escolar, inspirado na ETEC Vasco Antônio Venchiarutti.
 
-## ⚙️ Funcionalidades do sistema
+O sistema tem como objetivo facilitar o gerenciamento de produtos, estoque, vendas, funcionários e pedidos gráficos, contando com diferentes níveis de acesso e uma interface responsiva e personalizada.
 
-- Login e autenticação de funcionários;
-- Controle de permissões por nível de acesso;
-- Cadastro e gerenciamento de funcionários;
-- Cadastro e edição de categorias;
-- Cadastro e gerenciamento de produtos;
-- Controle de estoque;
-- Registro de entradas e saídas de mercadorias;
-- Histórico de movimentações;
-- Registro de vendas com atualização do estoque;
-- Cadastro de pedidos gráficos;
-- Central de gerenciamento de pedidos;
-- Pesquisa, filtros e edição de pedidos;
-- Acompanhamento dos status de produção;
-- Consulta de relatórios gerenciais;
-- Dashboard com indicadores administrativos;
-- Interface responsiva e personalizada.
+### 📄 Atividade 02 — Relatório do projeto
 
-## 👤 Níveis de acesso
+Documentação acadêmica que apresenta os objetivos, as funcionalidades, as tecnologias utilizadas e o processo de desenvolvimento do sistema Grafica_Gest.
 
-| Perfil | Responsabilidades |
-|---|---|
-| Administrador | Gerenciamento geral do sistema e dos funcionários. |
-| Gerente | Acompanhamento das operações, pedidos e relatórios. |
-| Atendente | Registro de vendas e cadastro de pedidos gráficos. |
-| Operador de produção | Acompanhamento e atualização dos serviços gráficos. |
+### 🤖 Atividade 03 — Declaração de uso de inteligência artificial
 
-## 🎨 Identidade visual
+Documento que apresenta, de maneira ética e transparente, a utilização do ChatGPT como ferramenta de apoio à programação, à compreensão dos códigos, à correção de erros e ao desenvolvimento do projeto.
 
-A interface foi desenvolvida com inspiração na identidade visual da ETEC Vasco Antônio Venchiarutti, utilizando suas cores e seu símbolo institucional.
-
-O sistema apresenta:
-
-- Menu lateral organizado por setores;
-- Paleta de cores em vermelho, branco e grafite;
-- Tela de login personalizada;
-- Formulários modernos e organizados;
-- Indicadores e cartões informativos;
-- Elementos visuais interativos;
-- Design responsivo e intuitivo.
+---
 
 ## 💻 Tecnologias utilizadas
 
@@ -59,15 +30,9 @@ O sistema apresenta:
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=for-the-badge&logo=xampp&logoColor=white)
 
-## 📂 Organização do projeto
+## 🎯 Objetivo acadêmico
 
-O sistema possui uma estrutura de arquivos organizada por funcionalidades, separando as páginas, os estilos, as ações em PHP, a conexão com o banco de dados e os componentes compartilhados.
-
-Essa organização facilita a manutenção, a compreensão dos códigos e a implementação de futuras melhorias.
-
-## 🤖 Uso de inteligência artificial
-
-Durante o desenvolvimento, foi utilizada a ferramenta ChatGPT como recurso de apoio à programação, contribuindo para a criação do banco de dados, a estilização da interface em CSS e o desenvolvimento e a correção dos códigos em PHP.
+Aplicar os conhecimentos adquiridos durante as aulas de Sistemas Web, integrando programação, banco de dados, desenvolvimento de interfaces, documentação técnica e utilização responsável da inteligência artificial.
 
 ## 👥 Integrantes
 
@@ -83,9 +48,13 @@ Durante o desenvolvimento, foi utilizada a ferramenta ChatGPT como recurso de ap
 - **Disciplina:** Sistemas Web
 - **Período:** 4º bimestre de 2026
 
-## 📌 Situação do projeto
+## 📌 Situação das atividades
 
-🛠️ Projeto desenvolvido, em fase de testes, validação e aprimoramento.
+| Atividade | Situação |
+| --- | --- |
+| Grafica_Gest | 🛠️ Desenvolvido, em fase de testes e aprimoramento |
+| Relatório do projeto | ✅ Elaborado |
+| Declaração de uso de IA | ✅ Elaborada |
 
 ---
 
@@ -93,4 +62,4 @@ Durante o desenvolvimento, foi utilizada a ferramenta ChatGPT como recurso de ap
 
 Desenvolvido para fins acadêmicos e para a aplicação prática dos conhecimentos adquiridos durante o curso de Informática para Internet.
 
-© 2026 — Grafica_Gest | Projeto acadêmico.
+© 2026 — Projeto acadêmico | ETEC Vasco Antônio Venchiarutti.
